@@ -1,6 +1,7 @@
 import Codynn_Logo from "../../assets/Codynn_Logo.png";
 import donateBlood from "../../assets/donate_blood.jpg";
 import Footer from "../../Components/Footer";
+import { Link } from "react-router-dom";
 const Home = () => {
   return (
    <>
@@ -15,9 +16,9 @@ const Home = () => {
     <nav>
 
     <ul className="flex flex-col md:flex-row font-medium font-sans">
-  <li className="md:mr-6">Home</li>
-  <li className="md:mr-6">About us</li>
-  <li className="md:mr-6">Mission</li>
+  <Link to="/"><li className="md:mr-6">Home</li></Link>
+  <Link to="/aboutus"><li className="md:mr-6">About us</li></Link>
+  <Link to="/mission"><li className="md:mr-6">Mission</li></Link>
 </ul>
 
 </nav>
