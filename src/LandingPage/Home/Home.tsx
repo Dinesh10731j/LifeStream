@@ -1,5 +1,6 @@
 import Codynn_Logo from "../../assets/Codynn_Logo.png";
 import donateBlood from "../../assets/donate_blood.jpg";
+import Footer from "../../Components/Footer";
 const Home = () => {
   return (
    <>
@@ -25,7 +26,7 @@ const Home = () => {
 
 
     <section>
-        <button className="bg-[#D32F2F] text-medium py-3 px-7 rounded-md tracking-wide ">Get Started</button>
+        <button className="bg-[#D32F2F] text-medium md:py-3 px-4 py-2 md:px-7 rounded-md tracking-wide  ">Get Started</button>
     </section>
 
 
@@ -46,6 +47,8 @@ const Home = () => {
 <img src={donateBlood} alt="blood_image" className='h-[500px] w-[500px]'/>
 
 </section>
+
+<Footer/>
 
    </>
   )
