@@ -1,11 +1,21 @@
 
 
+import Home from "./LandingPage/Home/Home";
+import Layout from "./Layout/Layout";
 
 const App = () => {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <>
+
+    <Layout>
+
+<Home/>
+    </Layout>
+
+
+
+  
+    </>
   )
 }
 
