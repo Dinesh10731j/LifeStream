@@ -6,8 +6,8 @@ const Aboutus = () => {
 <>
 
 <section className="py-4 px-3 md:py-10 md:px-60">
-<h1 className="py-2 px-3 text-2xl">Who We Are</h1>
-<p>
+<h1 className="py-2 px-3 text-4xl md:text-6xl">Who We Are</h1>
+<p className="md:text-2xl font-sans ">
 
 At Lifestream, we are a dedicated team of healthcare professionals, volunteers, and community members committed to saving lives through blood donation. Our organization was founded
  in 2021 with a mission to ensure a safe and sufficient blood supply for those in need.
@@ -18,14 +18,14 @@ At Lifestream, we are a dedicated team of healthcare professionals, volunteers, 
 
 <section className="py-4 px-3 md:py-10 md:px-60">
 
-<h1 className="py-2 px-3  text-2xl">Why Blood Donation Matters</h1>
-<p>Every two seconds, someone in Nepal needs blood. Blood donations are essential for surgeries, cancer treatments, 
+<h1 className="py-2 px-3  text-4xl  md:text-6xl">Why Blood Donation Matters</h1>
+<p className="md:text-2xl font-sans ">Every two seconds, someone in Nepal needs blood. Blood donations are essential for surgeries, cancer treatments, 
 chronic illnesses, and traumatic injuries. Your single donation can save up to three lives and make a profound impact
  on patients and their families.</p>
 </section>
 
 <section className="flex items-center justify-center px-2 py-4" >
-<h1 className="text-3xl font-sans">Our Team</h1>
+<h1 className="md:text-6xl font-sans text-4xl ">Our Team</h1>
 </section>
 
 

@@ -12,7 +12,7 @@ const Home = () => {
 
 <section className=" py-7 px-4  md:py-12 md:px-80 ">
 
-    <h1 className="md:text-xl text-justify text-md text-wrap">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro eum, quasi culpa dolorum provident, fugit iste 
+    <h1 className="text-justify text-md text-wrap md:text-2xl font-sans">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro eum, quasi culpa dolorum provident, fugit iste 
         tempore obcaecati dolore, consequatur quisquam perspiciatis minima distinctio ex aut quaerat eos ducimus cumque?
         Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro eum, quasi culpa dolorum provident, fugit iste 
         tempore obcaecati dolore, consequatur quisquam perspiciatis minima distinctio ex aut quaerat eos ducimus cumque?
