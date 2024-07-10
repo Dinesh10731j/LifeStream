@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Loginpic from "../../assets/loginpic.avif";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
