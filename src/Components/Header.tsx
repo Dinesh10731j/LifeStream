@@ -1,58 +1,5 @@
 
-// import Codynn_Logo from "../assets/Codynn_Logo.png";
-// import { Link } from "react-router-dom";
-// import {MenuIcon,X} from "lucide-react"
-
-// const Header = () => {
-//   return (
-//     <>
-    
-//     <section className="flex justify-around items-center py-3 px-2">
-
-// <section>
-//   <img src={Codynn_Logo} alt="codynn_logo" className="mt-4"/>
-// </section>
-// <section className="hidden py-4 px-4 bg-slate-400 mt-20 md:mt-0 md:bg-none md:block  ">
-// <nav>
-
-// <ul className="flex flex-col md:flex-row font-medium font-sans">
-// <Link to="/"><li className="md:mr-6">Home</li></Link>
-// <Link to="/aboutus"><li className="md:mr-6">About us</li></Link>
-// <Link to="/mission"><li className="md:mr-6">Mission</li></Link>
-
-// </ul>
-
-// </nav>
-
-// </section>
-
-
-// <section>
-//    <Link to="/login"><button className="bg-[#D32F2F] text-medium md:py-3 px-4 py-2 md:px-7 rounded-md tracking-wide  ">Get Started</button></Link> 
-// </section>
-
-// <section className="block md:hidden">
-//   <MenuIcon/>
-// </section>
-
-// </section>
-//     </>
-//   )
-// }
-
-// export default Header
-
-
-
-
-
-
-
-
-
-
-
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu as MenuIcon, X as XIcon } from "lucide-react";
 import Codynn_Logo from "../assets/Codynn_Logo.png";

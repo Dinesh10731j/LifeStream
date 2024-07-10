@@ -1,8 +1,18 @@
-import React from 'react'
+import Loginpic from "../../assets/loginpic.avif"
 
 const Login = () => {
   return (
-    <div>Login</div>
+    <>
+    <section className="flex flex-col md:flex ">
+
+    <form>This is form</form>
+
+
+    <img src={Loginpic} alt="login_pic" />
+    </section>
+
+    </>
+    
   )
 }
 
