@@ -14,7 +14,7 @@ const Signup = () => {
 
   const onSubmit: SubmitHandler<SignupData> = data => {
     console.log(data);
-    // Handle form submission logic here
+  
   };
 
   return (

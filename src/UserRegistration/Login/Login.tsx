@@ -13,7 +13,7 @@ const Login = () => {
 
   const onSubmit: SubmitHandler<LoginData> = data => {
     console.log(data);
-    // Handle login form submission logic here
+
   };
 
   return (
