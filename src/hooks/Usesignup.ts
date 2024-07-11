@@ -1,6 +1,5 @@
 import { axiosInstance } from "../api/axiosInterceptor";
 import { useMutation } from "@tanstack/react-query";
-import Cookies from "js-cookie";
 import { Endpoints } from "../api/Apendpoints";
 import { useNavigate } from "react-router-dom";
 import {toast } from 'react-toastify';
@@ -23,7 +22,7 @@ export const UseUserSignup = () => {
   const mutation = useMutation({
     mutationKey: ['usersignup'],
     mutationFn: Usersignup,
-    onSuccess: (data) => {
+    onSuccess: () => {
    
 
       setTimeout(()=>{
