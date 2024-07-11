@@ -34,10 +34,10 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
       </button>
 
       <aside 
-        className={`h-screen bg-slate-200 w-72 py-16 z-30 px-4 fixed top-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 py-7`}
+        className={`h-screen bg-slate-200 w-72 py-16 z-30 px-7 fixed top-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 py-7`}
       >
         <nav>
-          <img src={`https://avatar.iran.liara.run/username?username=${data?.name}`} className='h-20 w-20 mt-6'/>
+          <img src={`https://avatar.iran.liara.run/username?username=${data?.name}`} className='h-20 w-20 mt-6 ml-7 '/>
           <h1 className='mt-7 px-4'>{`Hi,${data?.name}`}</h1> 
           <ul className="flex flex-col gap-12 mt-10">
             <li className="flex items-center gap-2">
