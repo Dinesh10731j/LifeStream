@@ -2,20 +2,27 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
-
 interface ProtectedRoutesProps {
-  Components: React.ComponentType<any>; // Define Components prop as a React component type
+  Component: React.ComponentType<any>;
+  scheduleComponent: React.ComponentType<any>;
+  viewHistoryComponent: React.ComponentType<any>;
+  updatePersonalInformation:React.ComponentType<any>;
 }
 
-const Protectedroutes: React.FC<ProtectedRoutesProps> = ({ Components }) => {
+const Protectedroutes: React.FC<ProtectedRoutesProps> = ({
+  Component,
+  scheduleComponent,
+  viewHistoryComponent,
+  updatePersonalInformation
+  
+}) => {
   const role = Cookies.get('role');
-  const token = Cookies.get('token');
 
-  return (
-    <>
-      {role === 'donor' && token ? <Components /> : <Navigate to="/" />} {/* Render Components or navigate to "/" based on role */}
-    </>
-  );
+  if (role !== 'donor') {
+    return <Navigate to="/login" />;
+  }
+
+  return <Component scheduleComponent={scheduleComponent} viewHistoryComponent={viewHistoryComponent} updateInfoComponent={updatePersonalInformation} />;
 };
 
 export default Protectedroutes;

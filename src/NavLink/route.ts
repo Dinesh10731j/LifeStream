@@ -1,49 +1,19 @@
-type SimpleRoute = {
-    path: string;
-    name: string;
-  };
-  
-  type NestedRoute = {
-    name: string;
-    routes: { [key: string]: Route };
-  };
-  
-  type Route = SimpleRoute | NestedRoute;
-  
-  const routes: { [key: string]: Route } = {
-    auth: {
-      name: "Auth",
-      routes: {
-        register: { path: "/register", name: "User Registration" },
-        login: { path: "/login", name: "Login" },
-        logout: { path: "/logout", name: "Logout" },
-      },
-    },
-    dashboard: {
-      name: "Dashboard",
-      routes: {
-        base: { path: "/dashboard", name: "User Dashboard" },
-        donor: {
-          name: "Donor Dashboard",
-          routes: {
-            base: { path: "/dashboard/donor", name: "Donor Dashboard" },
-            viewHistory: { path: "/dashboard/donor/view-history", name: "View Donation History" },
-            schedule: { path: "/dashboard/donor/schedule", name: "Schedule Donation" },
-          },
-        },
-        recipient: {
-          name: "Recipient Dashboard",
-          routes: {
-            base: { path: "/dashboard/recipient", name: "Recipient Dashboard" },
-            searchBlood: { path: "/dashboard/recipient/search-blood", name: "Search Blood" },
-            requestBlood: { path: "/dashboard/recipient/request-blood", name: "Request Blood" },
-          },
-        },
-        admin: { path: "/dashboard/admin", name: "Admin Dashboard" },
-      },
-    },
-    notifications: { path: "/notifications", name: "Notifications" },
-  };
-  
-  export default routes;
-  
+import { LucideView, Calendar, Upload, User, HandHelping, Store, Search } from "lucide-react";
+
+export const donorNavLinks = [
+  { title: 'View Donation History', href: '/viewdonationhistory', icon: LucideView },
+  { title: 'Schedule New Donations', href: '/schedule', icon: Calendar },
+  { title: 'Update Personal Information', href: '/updateinfo', icon: User },
+];
+
+export const adminNavLinks = [
+  { title: 'Manage Users', href: '/manageusers', icon: User },
+  { title: 'Approve/Decline Blood Requests', href: '/approverequests', icon: HandHelping },
+  { title: 'Manage Blood Inventory', href: '/manageinventory', icon: Store },
+];
+
+export const recipientNavLinks = [
+  { title: 'Search for Donors/Blood Banks', href: '/search', icon: Search },
+  { title: 'Request Blood', href: '/requestblood', icon: Upload },
+  { title: 'View Request History', href: '/viewrequesthistory', icon: LucideView },
+];
