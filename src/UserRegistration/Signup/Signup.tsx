@@ -1,7 +1,7 @@
 
 import Loginpic from "../../assets/loginpic.avif";
 import { useForm, SubmitHandler } from "react-hook-form";
-
+import { UseUserSignup } from "../../hooks/Usesignup";
 interface SignupData {
   name: string;
   email: string;
@@ -10,10 +10,14 @@ interface SignupData {
 }
 
 const Signup = () => {
+
+  const mutation = UseUserSignup();
   const { register, handleSubmit, getValues,formState: { errors } } = useForm<SignupData>();
 
   const onSubmit: SubmitHandler<SignupData> = data => {
     console.log(data);
+
+    mutation.mutate(data);
   
   };
 
