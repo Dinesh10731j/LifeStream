@@ -1,19 +1,25 @@
 
 import Loginpic from "../../assets/loginpic.avif";
 import { useForm, SubmitHandler } from "react-hook-form";
-
+import { UseUserSignup } from "../../hooks/Usesignup";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 interface SignupData {
   name: string;
   email: string;
   password: string;
   confirmpassword: string;
+ 
 }
 
 const Signup = () => {
+
+  const mutation = UseUserSignup();
   const { register, handleSubmit, getValues,formState: { errors } } = useForm<SignupData>();
 
   const onSubmit: SubmitHandler<SignupData> = data => {
-    console.log(data);
+
+    mutation.mutate(data);
   
   };
 
@@ -71,6 +77,7 @@ const Signup = () => {
           Signup
         </button>
       </form>
+      <ToastContainer theme="dark" position="top-right"/>
 
       <img src={Loginpic} alt="signup_pic" className="md:h-[300px] md:w-[300px] md:ml-6 mt-12 md:mt-0" />
     </section>
