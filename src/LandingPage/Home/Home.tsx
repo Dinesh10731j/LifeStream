@@ -7,7 +7,7 @@ const Home = () => {
       <section className=" py-7 px-4  md:py-12 md:px-80 ">
         <h1 className="md:text-6xl text-4xl">Welcome to Lifestream</h1>
 
-<h3 className="md:text-2xl text-xl py-4 px-2 "> Save Lives, Donate Blood Every drop counts</h3>
+<h3 className="md:text-2xl text-xl py-4 px-2 text-justify text-wrap "> Save Lives, Donate Blood Every drop counts</h3>
         <h1 className="text-justify text-md text-wrap md:text-2xl font-sans">
           At Lifestream, we are dedicated to ensuring a safe and sufficient blood supply
           for those in need. Your blood donation can make a life-saving
