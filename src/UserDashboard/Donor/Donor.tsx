@@ -18,7 +18,7 @@ const Donor: React.FC<DonorProps> = ({
     <>
       <Bgbubble />
       <section>
-        <Sidenav />
+        <Sidenav userid={''} />
         <div className="ml-72 p-4"> {/* Adjust this based on your layout */}
           <Routes>
             <Route path="/viewdonationhistory" element={<ViewDonationHistory />} />
