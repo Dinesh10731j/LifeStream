@@ -37,12 +37,12 @@ console.log(data.token);
 
 
  setTimeout(()=>{
-
-    toast.success('Login Successful')
-
+  navigate("/donor");
+    
  },2000)
+ toast.success('Login Successful')
 
-     navigate("/donor");
+     
       
     },
     onError: () => {

@@ -13,6 +13,25 @@ import Protectedroutes from './protectedroutes/Protectedroutes';
 const App = () => {
   return (
     <Router>
+      <Routes>
+  
+        <Route element={<LayoutWithHeader />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/mission" element={<Mission />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Route>
+
+        <Route path="/donor" element={<Protectedroutes Components={Donor} />} />
+      </Routes>
+    </Router>
+  );
+};
+
+const LayoutWithHeader = () => {
+  return (
+    <>
       <Header />
       <Layout>
         <Bgbubble />
@@ -20,13 +39,11 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<Aboutus />} />
           <Route path="/mission" element={<Mission />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          {/* Example of protected route for donor dashboard */}
-          <Route path='/donor' element={<Protectedroutes Components={Donor} />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
         </Routes>
       </Layout>
-    </Router>
+    </>
   );
 };
 
