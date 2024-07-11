@@ -9,12 +9,14 @@ import Header from './Components/Header';
 import Signup from './UserRegistration/Signup/Signup';
 import Donor from './UserDashboard/Donor/Donor';
 import Protectedroutes from './protectedroutes/Protectedroutes';
+import ScheduleNewDonations from './UserDashboard/Donor/ScheduleNewDonations';
+import ViewDonationHistory from './UserDashboard/Donor/ViewDonationHistory';
+import UpdatePersonalInformation from './UserDashboard/Donor/UpdatePersonalInformation';
 
 const App = () => {
   return (
     <Router>
       <Routes>
-  
         <Route element={<LayoutWithHeader />}>
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<Aboutus />} />
@@ -22,8 +24,17 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Route>
-
-        <Route path="/donor" element={<Protectedroutes Components={Donor} />} />
+        <Route
+          path="/donor/*"
+          element={
+            <Protectedroutes
+              Component={Donor}
+              scheduleComponent={ScheduleNewDonations}
+              viewHistoryComponent={ViewDonationHistory}
+              updatePersonalInformation={UpdatePersonalInformation}
+            />
+          }
+        />
       </Routes>
     </Router>
   );
