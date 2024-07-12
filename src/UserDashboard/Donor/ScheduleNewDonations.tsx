@@ -177,7 +177,7 @@ const ScheduleNewDonations = () => {
         </form>
 
       </Box>
-      <ToastContainer theme='dark' position='top-right'/>
+      <ToastContainer theme='dark' position='top-right'  className="w-auto"/>
     </Container>
   );
 }

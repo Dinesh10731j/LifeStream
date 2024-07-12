@@ -5,12 +5,12 @@ import { useNavigate } from "react-router-dom";
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const {Scheduledonation} = Endpoints;
 
 const Userschedule = async (scheduledata: any) => {
   try {
     const response = await axiosInstance.post(Scheduledonation, scheduledata);
-    console.log(response.data);
     return response.data.data; // Assuming response.data already contains the required data
   } catch (error) {
     throw new Error("Schedule failed");
@@ -22,16 +22,21 @@ export const UseUserSchedule = () => {
   const mutation = useMutation({
     mutationKey: ['usersScheduledonation'],
     mutationFn: Userschedule,
-    onSuccess: () => {
+    onSuccess: (data) => {
+    
+        console.log('This is ',data);
    
 
       setTimeout(()=>{
-        toast.success("Schedule successfully");
-      },2000)
+             
+        navigate("/donor/viewdonationhistory");
+     
+      },2000);
+
+      toast.success("New Schedule created successfully");
   
 
-     
-        navigate("/donor/viewdonationhistory");
+
       
     },
     onError: () => {
