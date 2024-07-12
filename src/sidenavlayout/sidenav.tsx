@@ -40,7 +40,7 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
     <>
       {/* Toggle button for mobile */}
       <button 
-        className=" p-4 fixed top-0 left-0 z-40 px-3 py-7 hidden"
+        className=" p-4 fixed top-0 left-0 z-40 px-3 py-7 md:hidden"
         onClick={toggleSidebar}
       >
         <Menu />
@@ -49,12 +49,12 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
 <div className='flex'>
   
 <aside 
-        className={`h-screen bg-slate-200 w-68 md:w-72 py-16 z-30 px-7 md:${isOpen ? '-translate-x-full' : 'translate-x-0'} fixed top-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 py-7`}
+        className={`h-screen bg-slate-200 w-68 md:w-64 py-16 z-30 px-2 md:${isOpen ? '-translate-x-full' : 'translate-x-0'} fixed top-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 py-7`}
       >
         <nav>
           <img src={`https://avatar.iran.liara.run/username?username=${data?.name}`} className='h-20 w-20 mt-6 ml-7 '/>
-          <button onClick={handleLogout} className='py-2 px-7 mt-4  rounded-md bg-[tomato]'>Logout</button>
-          <h1 className='mt-7 px-4'>{`Hi,${data?.name}`}</h1> 
+          <button onClick={handleLogout} className='py-2 px-7 mt-4 ml-7  rounded-md bg-[tomato]'>Logout</button>
+          <h1 className='mt-7 px-4 font-sans font-medium text-xl'>{`Hi,${data?.name}`}</h1> 
           <ul className="flex flex-col gap-12 mt-10">
             <li className="flex items-center gap-2">
               <Link to="/donor/viewdonationhistory" className="flex items-center gap-2">
