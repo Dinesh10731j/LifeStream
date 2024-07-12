@@ -4,6 +4,7 @@ import { Link} from 'react-router-dom';
 import { UseUserProfile } from '../hooks/Usegetprofile';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import { donorNavLinks } from '../NavLink/route';
 
 interface SidenavProps {
   userid: string; // Explicitly type the userid as a string
@@ -45,7 +46,7 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
     
 
       <aside 
-        className={`h-screen bg-slate-200 w-72 py-16 z-30 px-7 fixed top-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 py-7`}
+        className={`h-screen bg-slate-200 w-68 md:w-72 py-16 z-30 px-7 fixed top-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 py-7`}
       >
         <nav>
           <img src={`https://avatar.iran.liara.run/username?username=${data?.name}`} className='h-20 w-20 mt-6 ml-7 '/>
@@ -55,19 +56,19 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
             <li className="flex items-center gap-2">
               <Link to="/donor/viewdonationhistory" className="flex items-center gap-2">
                 <LucideView />
-                View Donation History
+              {donorNavLinks.viewhistory}
               </Link>
             </li>
             <li className="flex items-center gap-2">
               <Link to="/donor/schedulenewdonations" className="flex items-center gap-2">
                 <Calendar />
-                Schedule New Donations
+                {donorNavLinks.schedule}
               </Link>
             </li>
             <li className="flex items-center gap-2">
               <Link to="/donor/updatepersonalinformation" className="flex items-center gap-2">
                 <User />
-                Update Personal Information
+                {donorNavLinks.uodateinfo}
               </Link>
             </li>
           </ul>
