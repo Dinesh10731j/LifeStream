@@ -45,7 +45,7 @@ const ViewDonationHistory: React.FC<ViewHistoryProps> = ({ email }) => {
       <TableCell>{donation.phoneNumber}</TableCell>
       <TableCell>{new Date(donation.date).toLocaleDateString()}</TableCell>
       <TableCell sx={{
-        color: donation.status === 'Pending' ? 'orange' : 'green'
+        color: donation.status === 'Pending' ? '#FFA500' : '#28A745'
       }}>
         {donation.status}
       </TableCell>
