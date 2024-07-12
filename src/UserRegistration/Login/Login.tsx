@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { UseUserLogin } from "../../hooks/Uselogin";
 import { ToastContainer } from "react-toastify";
-
+import { CircularProgress } from "@mui/material";
 import 'react-toastify/dist/ReactToastify.css';
 
 interface LoginData {
@@ -51,7 +51,7 @@ const Login = () => {
           type="submit"
           className="bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition duration-300"
         >
-          Login
+          {mutation.isPending?<CircularProgress size={20} color="success"/>: 'Login'}
         </button>
 
         <Link to="/signup" className="bg-pink-300 text-white py-2 rounded-md hover:bg-pink-500 transition duration-300 mt-7 text-center">
