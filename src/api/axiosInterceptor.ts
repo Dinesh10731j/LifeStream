@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BaseUrl ="http://localhost:7200";
+const BaseUrl ="https://lifestream-api-1.onrender.com";
 
 
 export const axiosInstance = axios.create({
