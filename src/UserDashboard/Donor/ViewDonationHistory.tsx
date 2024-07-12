@@ -19,10 +19,10 @@ const ViewDonationHistory: React.FC<ViewHistoryProps> = ({ email }) => {
 
   return (
     <>
-      <Typography variant="h4" align="center" gutterBottom>
+      <Typography variant="h4" align="center">
         Donation History
       </Typography>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} >
         <Table>
           <TableHead>
             <TableRow>
@@ -35,16 +35,31 @@ const ViewDonationHistory: React.FC<ViewHistoryProps> = ({ email }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data?.map((donation:any) => (
-              <TableRow key={donation._id}>
-                <TableCell>{donation.fullName}</TableCell>
-                <TableCell>{donation.email}</TableCell>
-                <TableCell>{donation.donationType}</TableCell>
-                <TableCell>{donation.phoneNumber}</TableCell>
-                <TableCell>{new Date(donation.date).toLocaleDateString()}</TableCell>
-                <TableCell>{donation.status}</TableCell>
-              </TableRow>
-            ))}
+
+          {data?.length > 0 ? (
+  data.map((donation: any) => (
+    <TableRow key={donation._id}>
+      <TableCell>{donation.fullName}</TableCell>
+      <TableCell>{donation.email}</TableCell>
+      <TableCell>{donation.donationType}</TableCell>
+      <TableCell>{donation.phoneNumber}</TableCell>
+      <TableCell>{new Date(donation.date).toLocaleDateString()}</TableCell>
+      <TableCell sx={{
+        color: donation.status === 'Pending' ? 'orange' : 'green'
+      }}>
+        {donation.status}
+      </TableCell>
+    </TableRow>
+  ))
+) : (
+  <TableRow>
+    <TableCell colSpan={6} style={{ textAlign: 'center' }}>
+      <h1>Schedule Not Found</h1>
+    </TableCell>
+  </TableRow>
+)}
+
+        
           </TableBody>
         </Table>
       </TableContainer>
