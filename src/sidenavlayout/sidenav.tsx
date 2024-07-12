@@ -5,6 +5,7 @@ import { UseUserProfile } from '../hooks/Usegetprofile';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import { donorNavLinks } from '../NavLink/route';
+import { CircularProgress } from '@mui/material';
 
 interface SidenavProps {
   userid: string; // Explicitly type the userid as a string
@@ -29,7 +30,7 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
   }
 
   if (isLoading) {
-    return <div>Loading....</div>;
+    return <div><CircularProgress size={30} color='primary'/></div>;
   }
 
   if (isError) {
