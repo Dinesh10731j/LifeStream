@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LucideView, Calendar, User, Menu,ChevronLeft,Tally1 } from "lucide-react";
+import { LucideView, Calendar, User, Menu} from "lucide-react";
 import { Link} from 'react-router-dom';
 import { UseUserProfile } from '../hooks/Usegetprofile';
 import Cookies from 'js-cookie';
