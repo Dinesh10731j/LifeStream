@@ -12,14 +12,14 @@ interface DonorProps {
 const Donor: React.FC<DonorProps> = ({
   scheduleComponent: ScheduleNewDonations,
   viewHistoryComponent: ViewDonationHistory,
-  updateInfoComponent: UpdatePersonalInformation, // Destructure the prop
+  updateInfoComponent: UpdatePersonalInformation,
 }) => {
   return (
     <>
       <Bgbubble />
       <section>
         <Sidenav userid={''} />
-        <div className="ml-72 p-4"> {/* Adjust this based on your layout */}
+        <div className=" ml-15 p-7 md:ml-60"> 
           <Routes>
             <Route path="/viewdonationhistory" element={<ViewDonationHistory />} />
             <Route path="/schedulenewdonations" element={<ScheduleNewDonations />} />
