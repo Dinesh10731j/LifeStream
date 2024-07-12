@@ -54,7 +54,7 @@ const ViewDonationHistory: React.FC<ViewHistoryProps> = ({ email }) => {
 ) : (
   <TableRow>
     <TableCell colSpan={6} style={{ textAlign: 'center' }}>
-      <h1>Schedule Not Found</h1>
+      <h1>Donation history not found</h1>
     </TableCell>
   </TableRow>
 )}

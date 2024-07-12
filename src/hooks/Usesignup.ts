@@ -26,12 +26,16 @@ export const UseUserSignup = () => {
    
 
       setTimeout(()=>{
-        toast.success("User Register Successful");
-      },2000)
+        navigate("/login");
+    
+      },2000);
+
+
+      toast.success("User Register Successful");
   
 
      
-        navigate("/login");
+       
       
     },
     onError: () => {
