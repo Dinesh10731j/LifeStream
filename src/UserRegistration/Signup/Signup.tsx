@@ -78,7 +78,7 @@ const Signup = () => {
           {mutation.isPending?<CircularProgress size={30} color="secondary"/>:'Signup'}
         </button>
       </form>
-      <ToastContainer theme="dark" position="top-right"/>
+      <ToastContainer theme="light" position="top-center"/>
 
       <img src={Loginpic} alt="signup_pic" className="md:h-[300px] md:w-[300px] md:ml-6 mt-12 md:mt-0" />
     </section>
