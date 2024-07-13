@@ -4,12 +4,19 @@ import { Endpoints } from "../api/Apendpoints";
 import { useNavigate } from "react-router-dom";
 import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cookies from "js-cookie";
 
 const {UserSignup} = Endpoints;
 
 const Usersignup = async (signupdata: any) => {
+  const token = Cookies.get("token")
   try {
-    const response = await axiosInstance.post(UserSignup, signupdata);
+    const response = await axiosInstance.post(UserSignup, signupdata,{
+      headers:{
+        Authorization:`Bearer ${token}`
+      }
+
+    });
     console.log(response.data);
     return response.data; // Assuming response.data already contains the required data
   } catch (error) {
