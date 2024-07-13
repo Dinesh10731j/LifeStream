@@ -3,6 +3,7 @@ export const Endpoints = {
     Userlogin: "/api/login",
     Userprofile: (userid:string) => `/api/userprofile/${userid}` ,
     Scheduledonation:"/api/schedulenewdonations",
-    Donorhistory:(email:string)=>`/api/donordonationhistory/${email}`
+    Donorhistory:(email:string)=>`/api/donordonationhistory/${email}`,
+    UpdateInfo:(userid:string)=>`/api/updatepersonalinformation/${userid}`
 };
 

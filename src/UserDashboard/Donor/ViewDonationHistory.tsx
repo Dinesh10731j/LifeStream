@@ -1,6 +1,7 @@
 import React from 'react';
 import { UseUserdonationhistory } from '../../hooks/Usedonationhistory';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
+import { CircularProgress } from '@mui/material';
 
 interface ViewHistoryProps {
   email: string; // Explicitly type the userid as a string
@@ -10,7 +11,7 @@ const ViewDonationHistory: React.FC<ViewHistoryProps> = ({ email }) => {
   const { isLoading, isError, data } = UseUserdonationhistory(email);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className='flex flex-col w-full h-full justify-center items-center'><CircularProgress size={30} color='primary'/></div>;
   }
 
   if (isError) {

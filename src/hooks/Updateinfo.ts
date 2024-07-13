@@ -6,12 +6,14 @@ import {toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Cookies from "js-cookie";
 
-const {UserSignup} = Endpoints;
 
-const Usersignup = async (signupdata: any) => {
-  const token = Cookies.get("token")
+
+
+const Userinfoupdate = async (updatedinfo: any) => {
+  const token = Cookies.get("token");
+  const userid = Cookies.get('email') || ''
   try {
-    const response = await axiosInstance.post(UserSignup, signupdata,{
+    const response = await axiosInstance.patch(Endpoints.UpdateInfo(userid), updatedinfo,{
       headers:{
         Authorization:`Bearer ${token}`
       }
@@ -20,25 +22,24 @@ const Usersignup = async (signupdata: any) => {
     console.log(response.data);
     return response.data.data; // Assuming response.data already contains the required data
   } catch (error) {
-    throw new Error("Signup failed");
+    throw new Error("Update failed");
   }
 };
 
-export const UseUserSignup = () => {
+export const UseUserInfoUpdate= (_userid?:string) => {
     const navigate = useNavigate();
   const mutation = useMutation({
-    mutationKey: ['usersignup'],
-    mutationFn: Usersignup,
-    onSuccess: (data) => {
-   
-      Cookies.set("id",data._id);
+    mutationKey: ['userinfoupdate'],
+    mutationFn:Userinfoupdate,
+    onSuccess: () => {
+
       setTimeout(()=>{
-        navigate("/login");
+        navigate("/donor");
     
       },2000);
 
 
-      toast.success("User Register Successful");
+      toast.success("Peronsl Information Updated");
   
 
      
@@ -46,7 +47,7 @@ export const UseUserSignup = () => {
       
     },
     onError: () => {
-      toast.error("User Registration Failed!")
+      toast.error("Failed to update personal information!")
     },
   });
 
