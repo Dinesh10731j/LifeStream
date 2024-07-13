@@ -18,7 +18,7 @@ const Usersignup = async (signupdata: any) => {
 
     });
     console.log(response.data);
-    return response.data; // Assuming response.data already contains the required data
+    return response.data.data; // Assuming response.data already contains the required data
   } catch (error) {
     throw new Error("Signup failed");
   }
@@ -29,9 +29,9 @@ export const UseUserSignup = () => {
   const mutation = useMutation({
     mutationKey: ['usersignup'],
     mutationFn: Usersignup,
-    onSuccess: () => {
+    onSuccess: (data) => {
    
-
+      Cookies.set("id",data._id);
       setTimeout(()=>{
         navigate("/login");
     

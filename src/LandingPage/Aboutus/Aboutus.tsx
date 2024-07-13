@@ -35,9 +35,9 @@ chronic illnesses, and traumatic injuries. Your single donation can save up to t
 
 {
 
-  ourTeam?.map((teams)=>(
+  ourTeam?.map((teams,index)=>(
 
-    <div className="bg-[#1A1A1A]/[0.1] py-3 px-4 rounded-md hover:shadow-lg transition-all ">
+    <div key={index} className="bg-[#1A1A1A]/[0.1] py-3 px-4 rounded-md hover:shadow-lg transition-all ">
       <img src={teams.image} className="h-[300px] w-[300px] md:h-[200px] md:w-[200px]"/>
 <h1 className="text-2xl font-sans font-medium" >{teams.name}</h1>
 <h3>{teams.team}</h3>
