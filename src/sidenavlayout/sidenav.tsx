@@ -26,6 +26,8 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
   const handleLogout =()=>{
     Cookies.remove("token");
     Cookies.remove("role");
+    Cookies.remove("userid");
+    Cookies.remove("email");
    navigate("/login");
   }
 

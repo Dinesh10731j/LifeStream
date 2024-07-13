@@ -94,7 +94,7 @@ const mutation = UseUserInfoUpdate(userid);
             color="primary"
             type="submit"
           >
-            {mutation.isPending?<CircularProgress size={30} color='secondary' />:'Update'}
+            {mutation.isPending?<CircularProgress size={25} color='secondary' />:'Update'}
           </Button>
         </Grid>
         <Grid item xs={12} sm={6}>
