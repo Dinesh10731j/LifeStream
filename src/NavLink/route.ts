@@ -10,7 +10,7 @@ export const donorNavLinks = {
 
 export const adminNavLinks = {
    manageuser: 'Manage Users',
-  approvedecline: 'Approve/Decline Blood Requests',
+  approvedecline: ' Blood Requests',
   inventory: 'Manage Blood Inventory'
   }
 

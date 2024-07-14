@@ -3,6 +3,8 @@ import { Container, TextField, Button, FormControl, InputLabel, Select, MenuItem
 import { UseUserSchedule } from '../../hooks/Usescheduledonation';
 import { ToastContainer } from 'react-toastify';
 import CircularProgress from '@mui/material/CircularProgress';
+import Sidenav from '../../sidenavlayout/sidenav';
+import Bgbubble from '../../Components/Bgbubble';
 const ScheduleNewDonations = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
   const mutation =UseUserSchedule();
@@ -12,6 +14,9 @@ const ScheduleNewDonations = () => {
   };
 
   return (
+    <>
+    <Bgbubble/>
+    <Sidenav userid={''}/>
     <Container maxWidth="sm">
       <Box sx={{ mt: 4, mb: 4, p: 2, borderRadius: 2, boxShadow: 3, backgroundColor: 'white' }}>
         <Typography variant="h4" align="center" gutterBottom>
@@ -180,6 +185,7 @@ const ScheduleNewDonations = () => {
       </Box>
       <ToastContainer theme='light' position='top-center'  className="w-auto"/>
     </Container>
+    </>
   );
 }
 
