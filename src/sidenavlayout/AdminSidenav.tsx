@@ -4,14 +4,14 @@ import { Link} from 'react-router-dom';
 import { UseUserProfile } from '../hooks/Usegetprofile';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
-import { donorNavLinks } from '../NavLink/route';
+import {adminNavLinks} from '../NavLink/route';
 import { CircularProgress } from '@mui/material';
 
 interface SidenavProps {
   userid: string; // Explicitly type the userid as a string
 }
 
-const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
+const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { isLoading, isError, data } = UseUserProfile(userid);
@@ -60,21 +60,21 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
           <h1 className='mt-7 px-4 font-sans font-medium text-xl'>{`Hi,${data?.name}`}</h1> 
           <ul className="flex flex-col gap-12 mt-10">
             <li className="flex items-center gap-2">
-              <Link to="/history" className="flex items-center gap-2">
+              <Link to="/receiptant-request" className="flex items-center gap-2">
                 <LucideView />
-              {donorNavLinks.viewhistory}
+              {adminNavLinks.approvedecline}
               </Link>
             </li>
             <li className="flex items-center gap-2">
-              <Link to="/schedule" className="flex items-center gap-2">
+              <Link to="/manage-blood-inventory" className="flex items-center gap-2">
                 <Calendar />
-                {donorNavLinks.schedule}
+                {adminNavLinks.inventory}
               </Link>
             </li>
             <li className="flex items-center gap-2">
-              <Link to="/update" className="flex items-center gap-2">
+              <Link to="/manage-receiptant" className="flex items-center gap-2">
                 <User />
-                {donorNavLinks.uodateinfo}
+                {adminNavLinks.manageuser}
               </Link>
             </li>
           </ul>
@@ -95,7 +95,7 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
   );
 }
 
-export default Sidenav;
+export default AdminSidenav;
 
 
 

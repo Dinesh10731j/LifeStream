@@ -39,7 +39,8 @@ console.log(data.token);
 
 
  setTimeout(()=>{
-  navigate("/donor");
+  const token = Cookies.get("role")
+  navigate( `/${token}`);
     
  },2000)
  toast.success('Login Successful');
