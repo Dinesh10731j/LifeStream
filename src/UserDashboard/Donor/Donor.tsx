@@ -1,9 +1,9 @@
 
 import Bgbubble from '../../Components/Bgbubble'
 import Sidenav from '../../sidenavlayout/sidenav'
-type Props = {}
 
-const Donor = (props: Props) => {
+
+const Donor = () => {
   return (
     <>
     <Bgbubble/>
