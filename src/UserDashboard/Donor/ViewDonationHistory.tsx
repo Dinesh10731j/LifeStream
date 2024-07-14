@@ -9,15 +9,9 @@ interface ViewHistoryProps {
 }
 
 const ViewDonationHistory: React.FC<ViewHistoryProps> = ({ email }) => {
-  const { isLoading, isError, data } = UseUserdonationhistory(email);
+  const { isLoading,data } = UseUserdonationhistory(email);
 
-  if (isLoading) {
-    return <div className='flex flex-col w-full h-full justify-center items-center'><CircularProgress size={30} color='primary'/></div>;
-  }
-
-  if (isError) {
-    return <div>Error while fetching donor history</div>;
-  }
+  
 
   return (
     <>
@@ -51,30 +45,44 @@ const ViewDonationHistory: React.FC<ViewHistoryProps> = ({ email }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {data?.length > 0 ? (
-                data.map((donation: any) => (
-                  <TableRow key={donation._id}>
-                    <TableCell>{donation.fullName}</TableCell>
-                    <TableCell>{donation.email}</TableCell>
-                    <TableCell>{donation.donationType}</TableCell>
-                    <TableCell>{donation.phoneNumber}</TableCell>
-                    <TableCell>{new Date(donation.date).toLocaleDateString()}</TableCell>
-                    <TableCell
-                      sx={{
-                        color: donation.status === 'Pending' ? '#FFA500' : '#28A745',
-                      }}
-                    >
-                      {donation.status}
-                    </TableCell>
-                  </TableRow>
-                ))
-              ) : (
-                <TableRow>
-                  <TableCell colSpan={6} style={{ textAlign: 'center' }}>
-                    <h1>Donation history not found</h1>
-                  </TableCell>
-                </TableRow>
-              )}
+
+
+            {
+  isLoading ? (
+    <Box>
+  <CircularProgress size={30} color='primary' aria-colspan={6} />
+    </Box>
+  
+
+
+  ) : (
+    data?.length > 0 ? (
+      data.map((donation: any) => (
+        <TableRow key={donation._id}>
+          <TableCell>{donation.fullName}</TableCell>
+          <TableCell>{donation.email}</TableCell>
+          <TableCell>{donation.donationType}</TableCell>
+          <TableCell>{donation.phoneNumber}</TableCell>
+          <TableCell>{new Date(donation.date).toLocaleDateString()}</TableCell>
+          <TableCell
+            sx={{
+              color: donation.status === 'Pending' ? '#FFA500' : '#28A745',
+            }}
+          >
+            {donation.status}
+          </TableCell>
+        </TableRow>
+      ))
+    ) : (
+      <TableRow>
+        <TableCell colSpan={6} style={{ textAlign: 'center' }}>
+          <h1>Donation history not found</h1>
+        </TableCell>
+      </TableRow>
+    )
+  )
+}
+
             </TableBody>
           </Table>
         </TableContainer>

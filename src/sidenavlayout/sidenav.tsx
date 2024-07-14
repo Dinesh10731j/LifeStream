@@ -53,7 +53,7 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
  data && data?.name?(
   <img src={`https://avatar.iran.liara.run/username?username=${data.name}`} className='h-20 w-20 mt-6 ml-7 '/>
  ):(
-  <img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=mail@ashallendesign.co.uk" className='h-20 w-20 mt-6 ml-7'/>
+  <img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=mail@ashallendesign.co.uk" className='h-20 w-20 mt-6 ml-7 rounded-full'/>
  )
           }
 
@@ -62,8 +62,13 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
       
      
           {
-            isLoading?(<CircularProgress size={20} sx={{ml:7}} color='primary'/>):(<h1 className='mt-7 px-4 font-sans font-medium text-xl'>{`Hi,${data?.name}`}</h1> )
+            isLoading?(<CircularProgress size={20} sx={{ml:7,mt:2}} color='primary' />):
+            (<h1 className='mt-7 px-4 font-sans font-medium text-xl'>{`Hi,${data?.name}`}</h1> )
 
+          }
+
+          {
+            isError?(<p>Username not found</p>):('')
           }
          
           <ul className="flex flex-col gap-12 mt-10">
