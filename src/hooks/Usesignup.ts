@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 const {UserSignup} = Endpoints;
 
 const Usersignup = async (signupdata: any) => {
-  const token = Cookies.get("token")
+  const token = Cookies.get("token");
   try {
     const response = await axiosInstance.post(UserSignup, signupdata,{
       headers:{
@@ -30,7 +30,7 @@ export const UseUserSignup = () => {
     mutationKey: ['usersignup'],
     mutationFn: Usersignup,
     onSuccess: (data) => {
-   
+      Cookies.set("token",data.token);
       Cookies.set("id",data._id);
       setTimeout(()=>{
         navigate("/login");
