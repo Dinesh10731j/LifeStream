@@ -31,13 +31,7 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
    navigate("/login");
   }
 
-  if (isLoading) {
-    return <div><CircularProgress size={30} color='primary'/></div>;
-  }
-
-  if (isError) {
-    return <div>Error while fetching data</div>;
-  }
+  
 
   return (
     <>
@@ -57,17 +51,21 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
         <nav>
           {
  data && data?.name?(
-  <img src={`https://avatar.iran.liara.run/username?username=${data.name}`} className='h-20 w-20 mt-6 ml-7 ' alt='ashdhfdjhfg'/>
+  <img src={`https://avatar.iran.liara.run/username?username=${data.name}`} className='h-20 w-20 mt-6 ml-7 '/>
  ):(
-  <img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=mail@ashallendesign.co.uk"/>
+  <img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=mail@ashallendesign.co.uk" className='h-20 w-20 mt-6 ml-7'/>
  )
           }
 
          
          
       
-          <button onClick={handleLogout} className='py-2 px-7 mt-4 ml-7  rounded-md bg-[tomato]'>Logout</button>
-          <h1 className='mt-7 px-4 font-sans font-medium text-xl'>{`Hi,${data?.name}`}</h1> 
+     
+          {
+            isLoading?(<CircularProgress size={20} sx={{ml:7}} color='primary'/>):(<h1 className='mt-7 px-4 font-sans font-medium text-xl'>{`Hi,${data?.name}`}</h1> )
+
+          }
+         
           <ul className="flex flex-col gap-12 mt-10">
             <li className="flex items-center gap-2">
               <Link to="/history" className="flex items-center gap-2">
@@ -89,6 +87,7 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
             </li>
           </ul>
         </nav>
+        <button onClick={handleLogout} className='py-2 px-7 mt-4 ml-7  rounded-md bg-[tomato] text-[#FFFFFF]'>Logout</button>
       </aside>
 
       

@@ -50,8 +50,9 @@ const ReceipentSidenav: React.FC<SidenavProps> = ({ userid }) => {
       >
         <nav>
           {
-            data && data?.name?(<img src={`https://avatar.iran.liara.run/username?username=${data?.name}`} className='h-20 w-20 mt-6 ml-7 '/>):(
-              <h1>Name not found</h1>
+            data && data?.name?(<img src={`https://avatar.iran.liara.run/username?username=${data?.name}`} 
+              className='h-20 w-20 mt-6 ml-7 '/>):(
+              <img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=mail@ashallendesign.co.uk"   className='h-20 w-20 mt-6 ml-7 rounded-full '/>
 
             )
 
