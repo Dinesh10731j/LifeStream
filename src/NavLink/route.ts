@@ -10,12 +10,12 @@ export const donorNavLinks = {
 
 export const adminNavLinks = {
    manageuser: 'Manage Users',
-  approvedecline: ' Blood Requests',
+  approvedecline: 'Manage Blood Requests',
   inventory: 'Manage Blood Inventory'
   }
 
 export const recipientNavLinks = {
-  searchdonation: 'Search for Donors/Blood Banks',
+  searchdonation: 'Search for Donors',
   requestblood: 'Request Blood', 
   viewrequesthistory: 'View Request History', 
 };

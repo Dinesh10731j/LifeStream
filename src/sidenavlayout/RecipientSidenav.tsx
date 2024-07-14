@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
-import {Menu,HandHeartIcon,StoreIcon,UsersIcon} from "lucide-react";
+import {UserSearchIcon,HandHeartIcon,HistoryIcon ,Menu} from "lucide-react";
 import { Link} from 'react-router-dom';
 import { UseUserProfile } from '../hooks/Usegetprofile';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
-import {adminNavLinks} from '../NavLink/route';
-import { CircularProgress } from '@mui/material';
+import {recipientNavLinks} from '../NavLink/route';
+import { CircularProgress,Typography } from '@mui/material';
+
 
 interface SidenavProps {
   userid: string; // Explicitly type the userid as a string
 }
 
-const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
+const ReceipentSidenav: React.FC<SidenavProps> = ({ userid }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const { isLoading, isError, data } = UseUserProfile(userid);
+  const { isLoading, data } = UseUserProfile(userid);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -31,13 +32,6 @@ const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
    navigate("/login");
   }
 
-  if (isLoading) {
-    return <div><CircularProgress size={30} color='primary'/></div>;
-  }
-
-  if (isError) {
-    return <div>Error while fetching data</div>;
-  }
 
   return (
     <>
@@ -56,29 +50,43 @@ const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
       >
         <nav>
           <img src={`https://avatar.iran.liara.run/username?username=${data?.name}`} className='h-20 w-20 mt-6 ml-7 '/>
-          <button onClick={handleLogout} className='py-2 px-7 mt-4 ml-7  rounded-md bg-[tomato]'>Logout</button>
-          <h1 className='mt-7 px-4 font-sans font-medium text-xl'>{`Hi,${data?.name}`}</h1> 
+         
+          <h1 className='mt-7  px-4 font-sans font-medium text-xl  py-0'>{isLoading ? (
+        <CircularProgress sx={{ml:7}} size={25} />
+      ) : !data?.name ? (
+        <Typography
+          variant="h6"
+          sx={{ fontWeight: 'medium', color: 'red' }}
+        >
+          Name not found
+        </Typography>
+      ) : (
+        <Typography variant="h6" sx={{ fontWeight: 'medium' }}>
+          {`Hi,${data.name}`}
+        </Typography>
+      )}</h1> 
           <ul className="flex flex-col gap-12 mt-10">
             <li className="flex items-center gap-2">
-              <Link to="/receiptant-request" className="flex items-center gap-2">
-                <HandHeartIcon />
-              {adminNavLinks.approvedecline}
+              <Link to="/search-donor" className="flex items-center gap-2">
+                <UserSearchIcon/>
+              {recipientNavLinks.searchdonation}
               </Link>
             </li>
             <li className="flex items-center gap-2">
-              <Link to="/manage-blood-inventory" className="flex items-center gap-2">
-                <StoreIcon/>
-                {adminNavLinks.inventory}
+              <Link to="/blood-request" className="flex items-center gap-2">
+                <HandHeartIcon/>
+                {recipientNavLinks.requestblood}
               </Link>
             </li>
             <li className="flex items-center gap-2">
-              <Link to="/manage-receiptant" className="flex items-center gap-2">
-                <UsersIcon/>
-                {adminNavLinks.manageuser}
+              <Link to="/request-history" className="flex items-center gap-2">
+                <HistoryIcon/>
+                {recipientNavLinks.viewrequesthistory}
               </Link>
             </li>
           </ul>
         </nav>
+        <button onClick={handleLogout} className='py-2 px-7 mt-4 ml-7  rounded-md bg-[#E63946] text-[#FFFFFF]'>Logout</button>
       </aside>
 
       
@@ -95,7 +103,7 @@ const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
   );
 }
 
-export default AdminSidenav;
+export default ReceipentSidenav;
 
 
 

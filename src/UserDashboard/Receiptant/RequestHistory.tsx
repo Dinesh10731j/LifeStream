@@ -1,15 +1,13 @@
 import ReceipentSidenav from "../../sidenavlayout/RecipientSidenav";
 import Bgbubble from "../../Components/Bgbubble";
-const Receiptant = () => {
+const RequestHistory = () => {
   return (
-    <>
-    
-    <Bgbubble/>
+<>
+<Bgbubble/>
 
-
-    <ReceipentSidenav userid={""}/>
-    </>
+<ReceipentSidenav userid={""}/>
+</>
   )
 }
 
-export default Receiptant
+export default RequestHistory

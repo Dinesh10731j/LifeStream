@@ -29,7 +29,7 @@ export const UseUserSchedule = () => {
 
       setTimeout(()=>{
              
-        navigate("/donor/viewdonationhistory");
+        navigate("viewdonationhistory");
      
       },2000);
 
