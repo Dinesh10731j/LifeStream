@@ -49,7 +49,16 @@ const ReceipentSidenav: React.FC<SidenavProps> = ({ userid }) => {
         className={`h-screen bg-slate-200 w-68 md:w-64 py-16 z-30 px-2 md:${isOpen ? '-translate-x-full' : 'translate-x-0'} fixed top-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 py-7`}
       >
         <nav>
-          <img src={`https://avatar.iran.liara.run/username?username=${data?.name}`} className='h-20 w-20 mt-6 ml-7 '/>
+          {
+            data && data?.name?(<img src={`https://avatar.iran.liara.run/username?username=${data?.name}`} className='h-20 w-20 mt-6 ml-7 '/>):(
+              <h1>Name not found</h1>
+
+            )
+
+          }
+
+
+        
          
           <h1 className='mt-7  px-4 font-sans font-medium text-xl  py-0'>{isLoading ? (
         <CircularProgress sx={{ml:7}} size={25} />

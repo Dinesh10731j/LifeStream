@@ -128,7 +128,9 @@ const SearchDonor = () => {
                       <TableCell>{index + 1}</TableCell>
                       <TableCell>{donor.fullName}</TableCell>
                       <TableCell>{donor.total}</TableCell>
-                      <TableCell>{donor.status}</TableCell>
+                      <TableCell sx={{
+                        color: donor.status === 'Pending' ? '#FFA500' : '#28A745',
+                      }}>{donor.status}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
