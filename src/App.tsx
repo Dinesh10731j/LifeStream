@@ -18,7 +18,11 @@ import Bgbubble from './Components/Bgbubble';
 import Layout from './Layout/Layout';
 import AdminRoutes from './protectedroutes/AdminRoutes';
 import DonorRoutes from './protectedroutes/DonorRoutes';
-
+import Receiptant from './UserDashboard/Receiptant/Receiptant';
+import ReceiptantRoutes from './protectedroutes/ReceiptantRoutes';
+import Request from './UserDashboard/Receiptant/Request';
+import Searchdonor from './UserDashboard/Receiptant/Searchdonor'
+import RequestHistory from './UserDashboard/Receiptant/RequestHistory';
 
 const App = () => {
   return (
@@ -50,10 +54,13 @@ const App = () => {
           <Route path="/update" element={<UpdatePersonalInformation userid={""} />} />
         </Route>
 
-        {/* <Route element={<RecipientRoutes />}>
-          <Route path="/recipient" element={<Rece/>} />
-          {/* Add more recipient-specific routes here */}
-        {/* </Route> */} */
+        <Route element={<ReceiptantRoutes/>}>
+          <Route path="/recipient" element={<Receiptant/>} />
+          <Route path="/blood-request" element={<Request/>} />
+          <Route path="/search-donor" element={<Searchdonor/>} />
+          <Route path="/request-history" element={<RequestHistory/>} />
+         
+        </Route> 
       </Routes>
     </Router>
   );

@@ -75,7 +75,7 @@ const Signup = () => {
           type="submit"
           className="bg-pink-500 text-white py-2 rounded-md hover:bg-pink-600 transition duration-300"
         >
-          {mutation.isPending?<CircularProgress size={30} color="secondary"/>:'Signup'}
+          {mutation.isPending?<CircularProgress size={15} color="primary"/>:'Signup'}
         </button>
       </form>
       <ToastContainer theme="light" position="top-center"/>

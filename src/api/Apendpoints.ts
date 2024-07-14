@@ -4,6 +4,7 @@ export const Endpoints = {
     Userprofile: (userid:string) => `/api/userprofile/${userid}` ,
     Scheduledonation:"/api/schedulenewdonations",
     Donorhistory:(email:string)=>`/api/donordonationhistory/${email}`,
-    UpdateInfo:(userid:string)=>`/api/updatepersonalinformation/${userid}`
+    UpdateInfo:(userid:string)=>`/api/updatepersonalinformation/${userid}`,
+    Totaldonordonation:'/api/totaldonationinfo',
 };
 

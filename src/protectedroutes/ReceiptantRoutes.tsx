@@ -1,8 +1,13 @@
 
-
+import { Outlet,Navigate } from "react-router-dom";
+import Cookies from "js-cookie";
 const ReceiptantRoutes = () => {
+  const role = Cookies.get("role");
   return (
-    <div>ReceiptantRoutes</div>
+    <>
+    {role==='recipient'?<Outlet/>:<Navigate to='/login'/>}
+    
+    </>
   )
 }
 
