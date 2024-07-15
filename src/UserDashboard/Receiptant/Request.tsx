@@ -15,6 +15,7 @@ const Request = () => {
 const mutation = UseUserBloodRequest();
   const onSubmit = (data:any) => {
    mutation.mutate(data);
+   console.log(data);
   };
 
   return (
