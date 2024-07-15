@@ -14,7 +14,7 @@ interface SidenavProps {
 const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const { isLoading, isError, data } = UseUserProfile(userid);
+  const {data,isLoading } = UseUserProfile(userid);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -31,13 +31,6 @@ const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
    navigate("/login");
   }
 
-  if (isLoading) {
-    return <div><CircularProgress size={30} color='primary'/></div>;
-  }
-
-  if (isError) {
-    return <div>Error while fetching data</div>;
-  }
 
   return (
     <>
@@ -56,17 +49,22 @@ const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
       >
         <nav>
 
-          {
-            data && data?.name?(
-              <img src={`https://avatar.iran.liara.run/username?username=${data.name}`} className='h-20 w-20 mt-6 ml-7 ' alt='ashdhfdjhfg'/>
-            ):(
-              <img src={`https://eu.ui-avatars.com/api/?name=${data.name}&size=250 `} alt='asjdjsfjdjg'/>
+        {
+            data && data?.name?(<img src={`https://avatar.iran.liara.run/username?username=${data?.name}`} 
+              className='h-20 w-20 mt-6 ml-7 '/>):(
+              <img src="https://api.dicebear.com/7.x/adventurer-neutral/svg?seed=mail@ashallendesign.co.uk"   className='h-20 w-20 mt-6 ml-7 rounded-full '/>
+
             )
- 
+
           }
         
-          <button onClick={handleLogout} className='py-2 px-7 mt-4 ml-7  rounded-md bg-[tomato]'>Logout</button>
-          <h1 className='mt-7 px-4 font-sans font-medium text-xl'>{`Hi,${data?.name}`}</h1> 
+       
+          <h1 className='mt-7 px-4 font-sans font-medium text-xl'>{
+        isLoading?(<CircularProgress size={20} color='primary' sx={{ml:7}}/>):(
+          <p>{`Hi,${data?.name}`}</p>
+        )
+        
+        }</h1> 
           <ul className="flex flex-col gap-12 mt-10">
             <li className="flex items-center gap-2">
               <Link to="/receiptant-request" className="flex items-center gap-2">
@@ -88,6 +86,7 @@ const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
             </li>
           </ul>
         </nav>
+        <button onClick={handleLogout} className='py-2 px-7 mt-4 ml-7  rounded-md bg-[tomato] text-[#FFFFFF]'>Logout</button>
       </aside>
 
       
