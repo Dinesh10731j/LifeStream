@@ -9,7 +9,7 @@ interface ViewHistoryProps {
 }
 
 const ViewDonationHistory: React.FC<ViewHistoryProps> = ({ email }) => {
-  const { isLoading,data } = UseUserdonationhistory(email);
+  const { isLoading,data,isError } = UseUserdonationhistory(email);
 
   
 
@@ -49,12 +49,13 @@ const ViewDonationHistory: React.FC<ViewHistoryProps> = ({ email }) => {
 
             {
   isLoading ? (
-    <Box>
-  <CircularProgress size={30} color='primary' aria-colspan={6} />
+    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+      <CircularProgress size={30} color='primary' />
     </Box>
-  
-
-
+  ) : isError ? (
+    <Typography variant="body1" align="center" color="error">
+      Error occurred while fetching data.
+    </Typography>
   ) : (
     data?.length > 0 ? (
       data.map((donation: any) => (
@@ -82,6 +83,7 @@ const ViewDonationHistory: React.FC<ViewHistoryProps> = ({ email }) => {
     )
   )
 }
+
 
             </TableBody>
           </Table>
