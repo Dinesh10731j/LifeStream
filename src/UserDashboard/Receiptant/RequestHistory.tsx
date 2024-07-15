@@ -54,7 +54,7 @@ const RequestHistory = () => {
               >
              
                   <p className="font-sans text-lg">Full Name: {request.fullName}</p>
-                  <p>Urgency: {request.urgency}</p>
+                  <p className={`${request.urgency.toLowerCase()=='yes'?'bg-red-500':'bg-green-600'} px-2 py-3 w-40 text-center rounded-md`}>Urgency: {request.urgency}</p>
                   <p>Email: {request.email}</p>
                   <p>Quantity: {request.quantity}</p>
                   <p>Message: {request.message}</p>
