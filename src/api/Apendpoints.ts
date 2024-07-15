@@ -7,5 +7,6 @@ export const Endpoints = {
     UpdateInfo:(userid:string)=>`/api/updatepersonalinformation/${userid}`,
     Totaldonordonation:'/api/totaldonationinfo',
     Requestblood:"/api/bloodrequest",
+    Bloodrequesthistory:(userid:string)=>`/api/getbloodrequesthistory/${userid}`
 };
 
