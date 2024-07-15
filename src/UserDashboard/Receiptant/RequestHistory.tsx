@@ -18,9 +18,9 @@ interface HistoryResponse {
 const getBackgroundColorClass = (urgency: string) => {
   switch (urgency.toLowerCase()) {
     case 'yes':
-      return 'bg-red-500'; // Example color class for 'Yes' urgency
+      return 'bg-pink-300'; // Example color class for 'Yes' urgency
     case 'no':
-      return 'bg-green-500'; // Example color class for 'No' urgency
+      return 'bg-[#7bed9f]'; // Example color class for 'No' urgency
     default:
       return 'bg-gray-500'; // Default color class
   }
@@ -28,7 +28,7 @@ const getBackgroundColorClass = (urgency: string) => {
 
 // Function to determine text color based on urgency
 const getTextColorClass = (urgency: string) => {
-  return urgency.toLowerCase() === 'yes' ? 'text-black' : 'text-white';
+  return urgency.toLowerCase() === 'yes' ? 'text-grey-400' : 'text-white';
 };
 
 const RequestHistory = () => {
@@ -39,7 +39,7 @@ const RequestHistory = () => {
     <>
       <Bgbubble />
       <ReceipentSidenav userid={''} />
-      <section className="grid grid-cols-1 md:grid-cols-3 ml-10 gap-5 p-6 md:ml-60">
+      <section className="flex flex-row justify-center items-center flex-wrap ml-10 gap-5 p-6 md:ml-60 text-[#FFFFFF]">
         {ReceipientantRequesthistory?.isPending ? (
           <CircularProgress size={20} color="primary" />
         ) : ReceipientantRequesthistory?.isError ? (
@@ -50,18 +50,16 @@ const RequestHistory = () => {
             ReceipientantRequesthistory.data.map((request: HistoryResponse) => (
               <div
                 key={request._id}
-                className={`py-4 px-6 ${getBackgroundColorClass(request.urgency)} ${getTextColorClass(request.urgency)} rounded-lg shadow-lg h-[300px] w-[300px] flex flex-col justify-between`}
+                className={`py-4 px-6 ${getBackgroundColorClass(request.urgency)} ${getTextColorClass(request.urgency)} rounded-lg shadow-lg h-[300px] w-[350px] flex flex-col justify-between z-10`}
               >
-                <div>
-                  <p className="font-semibold text-lg">Full Name: {request.fullName}</p>
-                  <p>Urgency: {request.urgency}</p>
+             
+                  <p className="font-sans text-lg">Full Name: {request.fullName}</p>
+                  <p className={`${request.urgency.toLowerCase()=='yes'?'bg-red-500':'bg-green-600'} px-2 py-3 w-40 text-center rounded-md`}>Urgency: {request.urgency}</p>
                   <p>Email: {request.email}</p>
                   <p>Quantity: {request.quantity}</p>
-                </div>
-                <div>
                   <p>Message: {request.message}</p>
-                  <p className="font-semibold">Blood Group: {request.bloodGroup}</p>
-                </div>
+                  <p className="font-medium">Blood Group: {request.bloodGroup}</p>
+               
               </div>
             ))
           ) : (

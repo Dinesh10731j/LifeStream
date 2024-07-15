@@ -15,7 +15,7 @@ const Request = () => {
 const mutation = UseUserBloodRequest();
   const onSubmit = (data:any) => {
    mutation.mutate(data);
-   console.log(data);
+
   };
 
   return (
@@ -99,7 +99,7 @@ const mutation = UseUserBloodRequest();
           </FormControl>
           <Box sx={{ display: 'flex', justifyContent: 'space-between', marginTop: '20px' }}>
             <Button variant="contained" color="primary" type="submit">
-              {mutation.isPending?<CircularProgress/>:'Submit'}
+              {mutation.isPending?<CircularProgress size={18} color='success'/>:'Submit'}
             </Button>
             <Button variant="contained" color="secondary" type="button" onClick={() => console.log("Cancelled")}>
               Cancel
