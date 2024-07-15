@@ -1,4 +1,4 @@
-import React from 'react';
+
 import ReceipentSidenav from '../../sidenavlayout/RecipientSidenav';
 import Bgbubble from '../../Components/Bgbubble';
 import { UseReceipentrequesthistory } from '../../hooks/Usebloodrequesthistory';
@@ -65,7 +65,7 @@ const RequestHistory = () => {
               </div>
             ))
           ) : (
-            <p className="text-center">Blood request history not found</p>
+            <p className="text-center  text-red-500">Blood request history not found</p>
           )
         )}
       </section>
