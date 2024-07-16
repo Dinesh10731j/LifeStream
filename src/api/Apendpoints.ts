@@ -9,6 +9,7 @@ export const Endpoints = {
     Requestblood:"/api/bloodrequest",
     Bloodrequesthistory:(email:string)=>`/api/getbloodrequesthistory/${email}`,
     Managebloodrquest:'/api/managebloodrequest',
-    Deleterequestdata:"/api/deleteid"
+    Deleterequestdata:"/api/deleteid",
+    Editrequest:"/api/editid"
 };
 
