@@ -14,7 +14,7 @@ interface SidenavProps {
 const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const { isLoading, isError, data } = UseUserProfile(userid);
+  const { isLoading,  data } = UseUserProfile(userid);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
