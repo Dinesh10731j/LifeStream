@@ -63,13 +63,11 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
      
           {
             isLoading?(<CircularProgress size={20} sx={{ml:7,mt:2}} color='primary' />):
-            (<h1 className='mt-7 px-4 font-sans font-medium text-xl'>{`Hi,${data?.name}`}</h1> )
+            (<h1 className='mt-7 px-4 font-sans font-medium text-2xl'>{`Hi,${data?.name}`}</h1> )
 
           }
 
-          {
-            isError?(<p>Username not found</p>):('')
-          }
+      
          
           <ul className="flex flex-col gap-12 mt-10">
             <li className="flex items-center gap-2">
