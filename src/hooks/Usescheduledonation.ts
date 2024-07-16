@@ -22,11 +22,8 @@ export const UseUserSchedule = () => {
   const mutation = useMutation({
     mutationKey: ['usersScheduledonation'],
     mutationFn: Userschedule,
-    onSuccess: (data) => {
+    onSuccess: () => {
     
-        console.log('This is ',data);
-   
-
       setTimeout(()=>{
              
         navigate("/history");

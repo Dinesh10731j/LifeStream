@@ -40,7 +40,7 @@ const UpdatePersonalInformation: React.FC<UpdateProps> = ({ userid }) => {
   };
 
   const onCancel = () => {
-    console.log("Form cancelled");
+   
     navigate("/donor");
   };
 

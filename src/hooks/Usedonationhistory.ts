@@ -14,7 +14,7 @@ const token = Cookies.get("token")
           Authorization: `Bearer ${token}`
         }
       });
-    console.log('This is donor history',response.data);
+
     return response.data.data; 
   } catch (error) {
     throw new Error("Failed to fetch donor history");

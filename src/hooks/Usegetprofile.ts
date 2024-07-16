@@ -14,7 +14,7 @@ const fetchUserProfile = async () => {
           Authorization: `Bearer ${token}`
         }
       });
-    console.log(response.data);
+
     return response.data.data; // Assuming response.data contains the required data
   } catch (error) {
     throw new Error("Failed to fetch user profile");

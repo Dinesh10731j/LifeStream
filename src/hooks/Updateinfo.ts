@@ -19,7 +19,7 @@ const Userinfoupdate = async (updatedinfo: any) => {
       }
 
     });
-    console.log(response.data);
+  
     return response.data.data; // Assuming response.data already contains the required data
   } catch (error) {
     throw new Error("Update failed");

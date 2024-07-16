@@ -14,7 +14,7 @@ const fetchReceiptentrequeshistory = async () => {
           Authorization: `Bearer ${token}`
         }
       });
-    console.log('This is blod request history',response.data);
+  
     return response.data.data; 
   } catch (error) {
     throw new Error("Failed to fetch user profile");
