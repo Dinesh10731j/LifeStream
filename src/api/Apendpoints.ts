@@ -7,6 +7,8 @@ export const Endpoints = {
     UpdateInfo:(userid:string)=>`/api/updatepersonalinformation/${userid}`,
     Totaldonordonation:'/api/totaldonationinfo',
     Requestblood:"/api/bloodrequest",
-    Bloodrequesthistory:(email:string)=>`/api/getbloodrequesthistory/${email}`
+    Bloodrequesthistory:(email:string)=>`/api/getbloodrequesthistory/${email}`,
+    Managebloodrquest:'/api/managebloodrequest',
+    Deleterequestdata:"/api/deleteid"
 };
 
