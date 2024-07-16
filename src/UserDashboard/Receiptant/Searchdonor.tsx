@@ -40,7 +40,7 @@ const SearchDonor = () => {
     }
   });
 
-  console.log(data); // Debug the data structure
+
 
   return (
     <>

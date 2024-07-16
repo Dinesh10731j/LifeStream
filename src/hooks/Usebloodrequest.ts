@@ -9,7 +9,7 @@ const {Requestblood} = Endpoints;
 const UsersRequest = async (requestdata: any) => {
   try {
     const response = await axiosInstance.post(Requestblood,requestdata);
-    console.log('This is response',response.data.data)
+   
     return response.data.data; 
   } catch (error) {
     throw new Error("Request failed");

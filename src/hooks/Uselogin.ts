@@ -17,7 +17,7 @@ const UserLogin = async (logindata: any) => {
             Authorization:`Bearer ${token}`
         }
     });
-    console.log(response.data);
+  
     return response.data.data; // Assuming response.data already contains the required data
   } catch (error) {
     throw new Error("Login failed");
@@ -31,7 +31,7 @@ export const UseUserLogin = () => {
     mutationFn: UserLogin,
     onSuccess: (data) => {
  
-console.log(data.token);
+
        Cookies.set("token",data.token);
        Cookies.set("role", data.role);
      Cookies.set('userid',data._id)

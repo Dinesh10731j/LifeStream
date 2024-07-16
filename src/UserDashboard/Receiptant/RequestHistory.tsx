@@ -33,7 +33,7 @@ const getTextColorClass = (urgency: string) => {
 
 const RequestHistory = () => {
   const ReceipientantRequesthistory = UseReceipentrequesthistory();
-  console.log('This is ', ReceipientantRequesthistory?.data);
+
 
   return (
     <>

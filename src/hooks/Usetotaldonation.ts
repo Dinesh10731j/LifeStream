@@ -13,7 +13,7 @@ const Donordetails = async () => {
           Authorization: `Bearer ${token}`
         }
       });
-    console.log('This is response data',response.data);
+
     return response.data.data; // Assuming response.data contains the required data
   } catch (error) {
     throw new Error("Failed to fetch user profile");
