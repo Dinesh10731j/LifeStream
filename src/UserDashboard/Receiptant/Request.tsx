@@ -9,14 +9,21 @@ import FormControl from '@mui/material/FormControl';
 import { Typography } from '@mui/material';
 import { UseUserBloodRequest } from '../../hooks/Usebloodrequest';
 import CircularProgress from '@mui/material/CircularProgress';
+import {useNavigate} from 'react-router-dom';
 
 const Request = () => {
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
 const mutation = UseUserBloodRequest();
   const onSubmit = (data:any) => {
    mutation.mutate(data);
 
   };
+
+  const OnCancel = ()=>{
+   navigate("/request-history")
+
+  }
 
   return (
     <>
@@ -101,7 +108,7 @@ const mutation = UseUserBloodRequest();
             <Button variant="contained" color="primary" type="submit">
               {mutation.isPending?<CircularProgress size={18} color='success'/>:'Submit'}
             </Button>
-            <Button variant="contained" color="secondary" type="button" onClick={() => console.log("Cancelled")}>
+            <Button variant="contained" color="secondary" type="button" onClick={OnCancel}>
               Cancel
             </Button>
           </Box>
@@ -112,3 +119,22 @@ const mutation = UseUserBloodRequest();
 };
 
 export default Request;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
