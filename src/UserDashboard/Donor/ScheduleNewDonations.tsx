@@ -209,7 +209,7 @@ const ScheduleNewDonations = () => {
               </Grid>
               <Grid item xs={12}>
                 <Button type="submit" variant="contained" color="primary" fullWidth>
-                  {mutation.isPending ? <CircularProgress size={20} /> : 'Schedule Donation'}
+                  {mutation.isPending ? <CircularProgress size={25} /> : 'Schedule Donation'}
                 </Button>
               </Grid>
             </Grid>
