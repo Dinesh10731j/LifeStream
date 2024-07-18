@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
   IconButton, Grid, Dialog, DialogTitle, DialogContent, DialogActions, Button,
@@ -11,6 +11,7 @@ import AdminSidenav from '../../sidenavlayout/AdminSidenav';
 import { UseManageUsers } from '../../hooks/Usemanageuser';
 import { UseChangeUserRole } from '../../hooks/Usechangerole';
 import { UseRemoveUser } from '../../hooks/Usedeleteuser';
+import {Link} from "react-router-dom"
 
 interface User {
   name: string;
@@ -57,15 +58,13 @@ const ManageRecipient: React.FC = () => {
    data.mutate(userId);
   };
 
-  const handleViewHistory = (userId: string) => {
-    console.log('Viewing history for user ID:', userId);
-  };
+  
 
   return (
     <>
       <Bgbubble />
       <AdminSidenav userid={""} />
-      <Grid container justifyContent="center" style={{ marginTop: '60px', marginLeft: '0px' }}>
+      <Grid container justifyContent="center" style={{ marginTop: '60px', paddingLeft:'30px' }}>
         <Grid item xs={12} md={10} lg={8}>
           <TableContainer component={Paper} style={{ maxHeight: 600 }}>
             <Table stickyHeader>
@@ -85,10 +84,11 @@ const ManageRecipient: React.FC = () => {
                     <TableCell>{user.role}</TableCell>
                     <TableCell>
                       <IconButton onClick={() => handleOpen(user, 'viewHistory')}>
-                        <EllipsisVertical />
+                        <EllipsisVertical color='#6c757d
+' />
                       </IconButton>
                       <IconButton onClick={() => handleOpen(user, 'edit')}>
-                        <Edit />
+                        <Edit color='#007BFF' />
                       </IconButton>
                       <IconButton onClick={() => handleDelete(user._id)}>
                         <Trash style={{ color: 'red' }} />
@@ -113,7 +113,7 @@ const ManageRecipient: React.FC = () => {
               <Typography variant="body1" gutterBottom>
                 {selectedUser.email}
               </Typography>
-              <Button onClick={() => handleViewHistory(selectedUser._id)}>View History</Button>
+           <Link to={selectedUser._id} className='px-4 py-2 bg-pink-400 text-white rounded-lg'>View History</Link>   
             </>
           )}
           {selectedUser && dialogType === 'edit' && (
