@@ -12,10 +12,10 @@ interface UserRoleData {
 const ChangeUserRole = async (userRoleData: UserRoleData) => {
   try {
     const {role, _id} = userRoleData;
-    console.log(role,_id)
+ 
 
     const response = await axiosInstance.put(`${Changerole}/${_id}`, { role });
-    console.log(response);
+   
     return response.data.data; 
   } catch (err) {
     throw new Error('Error while fetching role');

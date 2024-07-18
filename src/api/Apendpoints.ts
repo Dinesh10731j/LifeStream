@@ -12,6 +12,7 @@ export const Endpoints = {
     Deleterequestdata:"/api/deleteid",
     Editrequest:"/api/editid",
     Getusers :'/api/users',
-    Changerole:'/api/changerole'
+    Changerole:'/api/changerole',
+    Deleteuser:'/api/deleteuser',
 };
 

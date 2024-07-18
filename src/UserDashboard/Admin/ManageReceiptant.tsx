@@ -10,6 +10,7 @@ import Bgbubble from '../../Components/Bgbubble';
 import AdminSidenav from '../../sidenavlayout/AdminSidenav';
 import { UseManageUsers } from '../../hooks/Usemanageuser';
 import { UseChangeUserRole } from '../../hooks/Usechangerole';
+import { UseRemoveUser } from '../../hooks/Usedeleteuser';
 
 interface User {
   name: string;
@@ -26,6 +27,7 @@ interface FormData {
 const ManageRecipient: React.FC = () => {
   const { data: users } = UseManageUsers();
   const mutation = UseChangeUserRole();
+  const data = UseRemoveUser();
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [dialogType, setDialogType] = useState<'edit' | 'viewHistory' | null>(null);
   const [open, setOpen] = useState(false);
@@ -35,7 +37,7 @@ const ManageRecipient: React.FC = () => {
     setSelectedUser(user);
     setDialogType(type);
     setOpen(true);
-    reset({ role: user.role, _id: user._id }); // Include _id when resetting the form
+    reset({ role: user.role, _id: user._id }); 
   };
 
   const handleClose = () => {
@@ -52,7 +54,7 @@ const ManageRecipient: React.FC = () => {
   };
 
   const handleDelete = (userId: string) => {
-    console.log('Deleted user ID:', userId);
+   data.mutate(userId);
   };
 
   const handleViewHistory = (userId: string) => {
