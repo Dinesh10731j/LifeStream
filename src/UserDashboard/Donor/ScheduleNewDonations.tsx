@@ -18,7 +18,7 @@ const ScheduleNewDonations = () => {
     <>
       <Bgbubble />
       <Sidenav userid={''} />
-      <Container maxWidth="sm">
+      <Container maxWidth="sm" sx={{zIndex:'10'}}>
         <Box sx={{ mt: 4, mb: 4, p: 2, borderRadius: 2, boxShadow: 3, backgroundColor: 'white' }}>
           <Typography variant="h4" align="center" gutterBottom>
             Schedule a Donation
@@ -209,7 +209,7 @@ const ScheduleNewDonations = () => {
               </Grid>
               <Grid item xs={12}>
                 <Button type="submit" variant="contained" color="primary" fullWidth>
-                  {mutation.isPending ? <CircularProgress size={20} /> : 'Schedule Donation'}
+                  {mutation.isPending ? <CircularProgress size={25} /> : 'Schedule Donation'}
                 </Button>
               </Grid>
             </Grid>
