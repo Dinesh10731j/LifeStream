@@ -16,47 +16,79 @@ const Header = () => {
             alt="codynn_logo"
             className="mt-4"
             initial={{ y: -80, opacity: 0 }}
-
-            animate={{opacity:1,y:0}}
-
-            transition={{type:'spring',stiffness:300,delay:0.4}}
-
-            
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ type: "spring", stiffness: 300, delay: 0.4 }}
           />
         </section>
         <section className="hidden md:flex flex-row py-4 px-4 mt-20 md:mt-0">
           <nav>
             <ul className="flex flex-col md:flex-row font-medium font-sans">
               <Link to="/">
-                <motion.li className="md:mr-6"  whileHover={{ scale: 1.2, rotate: 10, transition: { type: "spring", stiffness: 300 } }}>Home</motion.li>
+                <motion.li
+                  className="md:mr-6"
+                  whileHover={{
+                    scale: 1.2,
+                    rotate: 10,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Home
+                </motion.li>
               </Link>
               <Link to="/aboutus">
-                <motion.li className="md:mr-6"  whileHover={{ scale: 1.2, rotate: 10, transition: { type: "spring", stiffness: 300 } }}>About us</motion.li>
+                <motion.li
+                  className="md:mr-6"
+                  whileHover={{
+                    scale: 1.2,
+                    rotate: 10,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  About us
+                </motion.li>
               </Link>
               <Link to="/mission">
-                <motion.li className="md:mr-6"  whileHover={{ scale: 1.2, rotate: 10, transition: { type: "spring", stiffness: 300 } }}>Mission</motion.li>
+                <motion.li
+                  className="md:mr-6"
+                  whileHover={{
+                    scale: 1.2,
+                    rotate: 10,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                >
+                  Mission
+                </motion.li>
               </Link>
             </ul>
           </nav>
         </section>
         <section>
           <Link to="/login">
-          <motion.button
-      className="bg-[#D32F2F] text-medium md:py-3 px-4 py-2 md:px-7 rounded-md tracking-wide text-[#FFFF]"
-      whileHover={{
-        scale: 1.1,
-        boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.2)",
-        transition: { duration: 0.3 },
-      }}
-      whileTap={{ scale: 0.9 }}
-    >
-      Get Started
-    </motion.button>
+            <motion.button
+              className="bg-[#D32F2F] text-medium md:py-3 px-4 py-2 md:px-7 rounded-md tracking-wide text-[#FFFF]"
+              whileHover={{
+                scale: 1.1,
+                boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.2)",
+                transition: { duration: 0.3 },
+              }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ y: -80, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              Get Started
+            </motion.button>
           </Link>
         </section>
-        <section className="block md:hidden cursor-pointer">
+
+        <motion.section
+          className="block md:hidden cursor-pointer"
+          initial={{ opacity: 0, y: -80, rotateY: 0 }}
+          animate={{ rotateX: 0, opacity: 1, y: 12 }}
+          transition={{ type: "spring", delay: 0.2, stiffness: 300 }}
+        >
           <MenuIcon onClick={() => setIsSidenavOpen(true)} />
-        </section>
+        </motion.section>
       </section>
 
       {isSidenavOpen && (
@@ -73,12 +105,16 @@ const Header = () => {
               onClick={() => setIsSidenavOpen(false)}
             />
             <nav>
-              <ul className="flex flex-col font-medium font-sans">
+              <ul
+                className="flex flex-col font-medium font-sans"
+                
+              >
                 <Link to="/" onClick={() => setIsSidenavOpen(false)}>
                   <motion.li
                     className="mb-4"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
+             
                   >
                     Home
                   </motion.li>
@@ -88,6 +124,7 @@ const Header = () => {
                     className="mb-4"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
+            
                   >
                     About us
                   </motion.li>
@@ -97,6 +134,7 @@ const Header = () => {
                     className="mb-4"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
+             
                   >
                     Mission
                   </motion.li>
