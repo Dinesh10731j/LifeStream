@@ -15,14 +15,14 @@ const Home = () => {
           Welcome to Lifestream
         </motion.h1>
 
-        <motion.h3 className="md:text-2xl text-xl py-4 px-2 text-justify text-wrap " initial={{opacity:0,x:300}}
-        animate={{opacity:1,x:0}}
+        <motion.h3 className="md:text-2xl text-xl py-4 px-2 text-justify text-wrap " initial={{opacity:0,y:300}}
+        animate={{opacity:1,y:0}}
         transition={{type:'just',delay:0.3}}
         >
           {" "}
           Save Lives, Donate Blood Every drop counts
         </motion.h3>
-        <motion.h1 className="text-justify text-md text-wrap md:text-2xl font-sans" initial={{x:-300,opacity:0}} animate={{x:0,opacity:1}}
+        <motion.h1 className="text-justify text-md text-wrap md:text-2xl font-sans" initial={{y:-300,opacity:0}} animate={{y:0,opacity:1}}
         transition={{type:'spring',delay:0.5,stiffness:300}}
         >
           At Lifestream, we are dedicated to ensuring a safe and sufficient
