@@ -6,6 +6,7 @@ import { UseUserLogin } from "../../hooks/Uselogin";
 import { ToastContainer } from "react-toastify";
 import { CircularProgress } from "@mui/material";
 import 'react-toastify/dist/ReactToastify.css';
+import {motion} from "framer-motion"
 
 interface LoginData {
   email: string;
@@ -23,7 +24,8 @@ const Login = () => {
 
   return (
     <section className="flex flex-col md:flex-row justify-center items-center mt-20 gap-10">
-      <form 
+      <motion.form 
+      initial={{y:-90,opacity:0}} animate={{y:0,opacity:1}} transition={{delay:0.4,stype:'spring',stiffness:300}}
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col w-[400px] h-auto bg-transparent p-6 rounded-lg shadow-md md:w-[500px] z-10"
       >
@@ -57,10 +59,10 @@ const Login = () => {
         <Link to="/signup" className="bg-pink-300 text-white py-2 rounded-md hover:bg-pink-500 transition duration-300 mt-7 text-center">
           Signup
         </Link>
-      </form>
+      </motion.form>
       <ToastContainer theme="light" position="top-center"/>
 
-      <img src={Loginpic} alt="login_pic" className="md:h-[300px] md:w-[300px] md:ml-6 mt-12 md:mt-0" />
+      <motion.img src={Loginpic} alt="login_pic" className="md:h-[300px] md:w-[300px] md:ml-6 mt-12 md:mt-0" initial={{y:-90,opacity:0}} animate={{y:0,opacity:1}} transition={{delay:0.4,stype:'spring',stiffness:300}} />
     </section>
   );
 }

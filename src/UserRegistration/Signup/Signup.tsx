@@ -5,6 +5,7 @@ import { UseUserSignup } from "../../hooks/Usesignup";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { CircularProgress } from "@mui/material";
+import {motion} from "framer-motion"
 interface SignupData {
   name: string;
   email: string;
@@ -26,7 +27,8 @@ const Signup = () => {
 
   return (
     <section className="flex flex-col md:flex-row justify-center items-center mt-20 gap-10">
-      <form 
+      <motion.form 
+      initial={{y:-90,opacity:0}} animate={{y:0,opacity:1}} transition={{delay:0.4,stype:'spring',stiffness:300}}
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col w-[400px] h-auto bg-transparent p-6 rounded-lg shadow-md md:w-[500px] z-10"
       >
@@ -77,10 +79,13 @@ const Signup = () => {
         >
           {mutation.isPending?<CircularProgress size={15} color="primary"/>:'Signup'}
         </button>
-      </form>
+      </motion.form>
       <ToastContainer theme="light" position="top-center"/>
 
-      <img src={Loginpic} alt="signup_pic" className="md:h-[300px] md:w-[300px] md:ml-6 mt-12 md:mt-0" />
+      <motion.img src={Loginpic} alt="signup_pic" className="md:h-[300px] md:w-[300px] md:ml-6 mt-12 md:mt-0" 
+      
+      initial={{y:-90,opacity:0}} animate={{y:0,opacity:1}} transition={{delay:0.4,stype:'spring',stiffness:300}}
+      />
     </section>
   );
 }
