@@ -28,6 +28,7 @@ const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
     Cookies.remove("role");
     Cookies.remove("userid");
     Cookies.remove("email");
+    Cookies.remove('id')
    navigate("/login");
   }
 

@@ -18,7 +18,7 @@ const Usersignup = async (signupdata: any) => {
 
     });
    
-    return response.data.data; // Assuming response.data already contains the required data
+    return response.data.data; 
   } catch (error) {
     throw new Error("Signup failed");
   }
