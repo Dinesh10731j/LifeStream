@@ -23,6 +23,7 @@ import ReceiptantRoutes from './protectedroutes/ReceiptantRoutes';
 import Request from './UserDashboard/Receiptant/Request';
 import Searchdonor from './UserDashboard/Receiptant/Searchdonor'
 import RequestHistory from './UserDashboard/Receiptant/RequestHistory';
+import Viewuserhistory from './Viewuserhistory/Viewuserhistory';
 
 const App = () => {
   return (
@@ -43,6 +44,7 @@ const App = () => {
           <Route path="/manage-blood-inventory" element={<Managebloodinventory />} />
           <Route path="/manage-receiptant" element={<ManageReceiptant />} />
           <Route path="/receiptant-request" element={<Receiptantrequest />} />
+          <Route path='/viewuserhistory/:id' element={<Viewuserhistory/>}/>
 
          
         </Route>
@@ -52,6 +54,7 @@ const App = () => {
           <Route path="/schedule" element={<ScheduleNewDonations />} />
           <Route path="/history" element={<ViewDonationHistory email={''}/>} />
           <Route path="/update" element={<UpdatePersonalInformation userid={""} />} />
+        
         </Route>
 
         <Route element={<ReceiptantRoutes/>}>
