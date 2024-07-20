@@ -1,8 +1,10 @@
 import { useParams } from 'react-router-dom';
 import { UseViewHistory } from '../hooks/Useviewhistory';
+import Bgbubble from '../Components/Bgbubble';
 const Viewuserhistory = () => {
   const { id } = useParams();
   const { data, error, isLoading } = UseViewHistory(id || '');
+  console.log(data);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -14,10 +16,11 @@ const Viewuserhistory = () => {
 
   return (
     <div>
-      <h1>User History for ID: {id}</h1>
-      {data && (
-        <pre>{JSON.stringify(data, null, 2)}</pre>
-      )}
+      <Bgbubble/>
+    <section className='flex flex-col items-center justify-end'>
+      <h1>This is a user profile</h1>
+
+    </section>
     </div>
   );
 };

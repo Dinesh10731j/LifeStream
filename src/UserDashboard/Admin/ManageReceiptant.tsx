@@ -113,7 +113,7 @@ const ManageRecipient: React.FC = () => {
               <Typography variant="body1" gutterBottom>
                 {selectedUser.email}
               </Typography>
-           <Link to={`/viewuserhistory/${selectedUser._id}`} className='px-4 py-2 bg-pink-400 text-white rounded-lg'>View History</Link>   
+           <Link to={`/viewuserhistory/${selectedUser.email}`} className='px-4 py-2 bg-pink-400 text-white rounded-lg'>View History</Link>   
             </>
           )}
           {selectedUser && dialogType === 'edit' && (
