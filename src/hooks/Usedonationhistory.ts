@@ -8,7 +8,7 @@ const fetchDonorid = async () => {
   try {
    
 const token = Cookies.get("token")
-    const email = Cookies.get("email") || ''; // Ensure userid is treated as string
+    const email = Cookies.get("email") || ''; 
     const encodeEmail = base64.encode(email);
 
     const response = await axiosInstance.get(Endpoints.Donorhistory(encodeEmail), {
