@@ -6,6 +6,7 @@ import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import {adminNavLinks} from '../NavLink/route';
 import { CircularProgress } from '@mui/material';
+import {motion} from "framer-motion"
 
 interface SidenavProps {
   userid: string; // Explicitly type the userid as a string
@@ -36,16 +37,20 @@ const AdminSidenav: React.FC<SidenavProps> = ({ userid }) => {
   return (
     <>
       {/* Toggle button for mobile */}
-      <button 
+      <motion.button 
         className=" p-4 fixed top-0 left-0 z-40 px-3 py-7 md:hidden"
         onClick={toggleSidebar}
+        initial={{opacity:0,y:-30}}
+        animate={{opacity:1,y:0}}
+        transition={{type:"spring",stiffness:300}}
       >
         <Menu />
-      </button>
+      </motion.button>
     
 <div className='flex'>
   
 <aside 
+
         className={`h-screen bg-slate-200 w-68 md:w-64 py-16 z-30 px-2 md:${isOpen ? '-translate-x-full' : 'translate-x-0'} fixed top-0 left-0 transform ${isOpen ? 'translate-x-0' : '-translate-x-full'} transition-transform duration-300 ease-in-out md:translate-x-0 py-7`}
       >
         <nav>
