@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import base64 from "base-64"
 import {
   Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,
   IconButton, Grid, Dialog, DialogTitle, DialogContent, DialogActions, Button,
@@ -113,7 +114,7 @@ const ManageRecipient: React.FC = () => {
               <Typography variant="body1" gutterBottom>
                 {selectedUser.email}
               </Typography>
-           <Link to={`/viewuserhistory/${selectedUser.email}`} className='px-4 py-2 bg-pink-400 text-white rounded-lg'>View History</Link>   
+           <Link to={`/viewuserhistory/${base64.encode(selectedUser.email)}`} className='px-4 py-2 bg-pink-400 text-white rounded-lg'>View History</Link>   
             </>
           )}
           {selectedUser && dialogType === 'edit' && (
