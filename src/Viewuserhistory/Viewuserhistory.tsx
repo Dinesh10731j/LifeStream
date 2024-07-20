@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { UseViewHistory } from '../hooks/Useviewhistory';
 import Bgbubble from '../Components/Bgbubble';
 import { CircularProgress, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography} from '@mui/material';
-
+import AdminSidenav from '../sidenavlayout/AdminSidenav';
 interface HistoryType {
   _id: string;
   fullName: string;
@@ -26,12 +26,13 @@ const Viewuserhistory = () => {
   return (
     <div>
       <Bgbubble />
+      <AdminSidenav userid={''}/>
       <section className='flex flex-col items-center justify-end'>
         <Typography variant="h4" gutterBottom>
           User Profile History
         </Typography>
 
-        <TableContainer component={Paper} style={{ maxWidth: '90%', marginTop: '20px' }}>
+        <TableContainer component={Paper} style={{ maxWidth: '60%', marginTop: '20px' }}>
           <Table aria-label="simple table">
             <TableHead>
               <TableRow>
