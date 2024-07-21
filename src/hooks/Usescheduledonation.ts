@@ -11,7 +11,7 @@ const {Scheduledonation} = Endpoints;
 const Userschedule = async (scheduledata: any) => {
   try {
     const response = await axiosInstance.post(Scheduledonation, scheduledata);
-    return response.data.data; // Assuming response.data already contains the required data
+    return response.data.data; 
   } catch (error) {
     throw new Error("Schedule failed");
   }
