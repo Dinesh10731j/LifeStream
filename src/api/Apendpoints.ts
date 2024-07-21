@@ -15,6 +15,7 @@ export const Endpoints = {
     Changerole:'/api/changerole',
     Deleteuser:'/api/deleteuser',
     Userhistory:'/api/userhistory',
-    Donationstats:'/api/donation-stats'
+    Donationstats:'/api/donation-stats',
+    DonationInfo :'/api/donation-info'
 };
 
