@@ -6,7 +6,6 @@ import { Usedonationinfo } from "../../hooks/Usedonationinfo";
 const Managebloodinventory = () => {
   const { data: donationinfo } = Usedonationinfo();
 
-  console.log("This is a donationinfo", donationinfo);
 
   return (
     <>
