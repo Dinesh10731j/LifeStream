@@ -49,7 +49,7 @@ const Admin = () => {
         {isLoading && <p><CircularProgress size={30} color='primary'/></p>}
         {isError && <p>Error: {error.message}</p>}
         {chartData && (
-          <div className="w-full max-w-md">
+          <div className="w-full max-w-md z-20">
             <Doughnut data={chartData} />
           </div>
         )}
