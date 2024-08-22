@@ -22,5 +22,8 @@ const fetchUserProfile = async () => {
 };
 
 export const UseUserProfile = (_userid?: string) => {
-  return useQuery({ queryKey:['userProfile'], queryFn:fetchUserProfile});
+  return useQuery({ queryKey:['userProfile'], queryFn:fetchUserProfile, staleTime: 1000,
+    refetchInterval: 1000,
+    refetchOnMount: "always",
+    refetchOnWindowFocus: "always",});
 };

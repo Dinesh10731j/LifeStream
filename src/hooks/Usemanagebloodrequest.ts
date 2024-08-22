@@ -24,5 +24,8 @@ return response.data.data;
 
 
  export const UseManageBloodRequest = ()=>{
-    return useQuery({queryKey:['managebloodrequest'],queryFn:fetchManageBloodRequest})
+    return useQuery({queryKey:['managebloodrequest'],queryFn:fetchManageBloodRequest, staleTime: 1000,
+        refetchInterval: 1000,
+        refetchOnMount: "always",
+        refetchOnWindowFocus: "always",})
 }
