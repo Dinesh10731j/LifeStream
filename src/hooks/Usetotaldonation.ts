@@ -21,5 +21,8 @@ const Donordetails = async () => {
 };
 
 export const UseUserDonationDetails= () => {
-  return useQuery({queryKey:['donordetails'], queryFn:Donordetails});
+  return useQuery({queryKey:['donordetails'], queryFn:Donordetails, staleTime: 1000,
+    refetchInterval: 1000,
+    refetchOnMount: "always",
+    refetchOnWindowFocus: "always",});
 };

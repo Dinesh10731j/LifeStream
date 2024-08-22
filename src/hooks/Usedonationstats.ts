@@ -21,5 +21,8 @@ const getDonationstats = async ()=>{
 
 
 export const UsegetDonationstats = ()=>{
-    return useQuery({queryKey:['donationstats'],queryFn:getDonationstats})
+    return useQuery({queryKey:['donationstats'],queryFn:getDonationstats, staleTime: 1000,
+        refetchInterval: 1000,
+        refetchOnMount: "always",
+        refetchOnWindowFocus: "always",})
 }

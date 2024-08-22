@@ -22,5 +22,8 @@ const fetchReceiptentrequeshistory = async () => {
 };
 
 export const UseReceipentrequesthistory = (_email?: string) => {
-  return useQuery({ queryKey:['bloodrequesthistory'], queryFn:fetchReceiptentrequeshistory});
+  return useQuery({ queryKey:['bloodrequesthistory'], queryFn:fetchReceiptentrequeshistory, staleTime: 1000,
+    refetchInterval: 1000,
+    refetchOnMount: "always",
+    refetchOnWindowFocus: "always",});
 };

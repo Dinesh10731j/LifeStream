@@ -13,5 +13,8 @@ const ManageUsers = async () => {
 };
 
 export const UseManageUsers = () => {
-  return useQuery({ queryKey: ["allusers"], queryFn: ManageUsers });
+  return useQuery({ queryKey: ["allusers"], queryFn: ManageUsers, staleTime: 1000,
+    refetchInterval: 1000,
+    refetchOnMount: "always",
+    refetchOnWindowFocus: "always", });
 };

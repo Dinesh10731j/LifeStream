@@ -18,7 +18,10 @@ const encodedemail = base64.encode(id)
 }
 
 export const UseViewHistory = (id: string ) => {
-    return useQuery({queryKey:['viewuserhistory', id], queryFn:() => ViewHistory(id)})
+    return useQuery({queryKey:['viewuserhistory', id], queryFn:() => ViewHistory(id), staleTime: 1000,
+        refetchInterval: 1000,
+        refetchOnMount: "always",
+        refetchOnWindowFocus: "always",})
      
 }
 
