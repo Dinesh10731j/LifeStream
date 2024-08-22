@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import { Menu as MenuIcon, X as XIcon } from "lucide-react";
 import Codynn_Logo from "../assets/Codynn_Logo.png";
 import { motion } from "framer-motion";
@@ -23,7 +23,7 @@ const Header = () => {
         <section className="hidden md:flex flex-row py-4 px-4 mt-20 md:mt-0">
           <nav>
             <ul className="flex flex-col md:flex-row font-medium font-sans">
-              <Link to="/">
+              <NavLink to="/" className={({isActive})=>isActive?'border-b-2 border-black':''}>
                 <motion.li
                   className="md:mr-6"
                   whileHover={{
@@ -34,8 +34,8 @@ const Header = () => {
                 >
                   Home
                 </motion.li>
-              </Link>
-              <Link to="/aboutus">
+              </NavLink>
+              <NavLink to="/aboutus" className={({isActive})=>isActive?'border-b-2 border-black':''}>
                 <motion.li
                   className="md:mr-6"
                   whileHover={{
@@ -46,8 +46,8 @@ const Header = () => {
                 >
                   About us
                 </motion.li>
-              </Link>
-              <Link to="/mission">
+              </NavLink>
+              <NavLink to="/mission" className={({isActive})=>isActive?'border-b-2 border-black':''}>
                 <motion.li
                   className="md:mr-6"
                   whileHover={{
@@ -58,12 +58,12 @@ const Header = () => {
                 >
                   Mission
                 </motion.li>
-              </Link>
+              </NavLink>
             </ul>
           </nav>
         </section>
         <section>
-          <Link to="/login">
+          <NavLink to="/login" className={({isActive})=>isActive?'border-b-2 border-black':''}>
             <motion.button
               className="bg-[#D32F2F] text-medium md:py-3 px-4 py-2 md:px-7 rounded-md tracking-wide text-[#FFFF]"
               whileHover={{
@@ -78,7 +78,7 @@ const Header = () => {
             >
               Get Started
             </motion.button>
-          </Link>
+          </NavLink>
         </section>
 
         <motion.section
@@ -109,7 +109,7 @@ const Header = () => {
                 className="flex flex-col font-medium font-sans"
                 
               >
-                <Link to="/" onClick={() => setIsSidenavOpen(false)}>
+                <NavLink to="/" className={({isActive})=>isActive?'border-b-2 border-black':''} onClick={() => setIsSidenavOpen(false)}>
                   <motion.li
                     className="mb-4"
                     whileHover={{ scale: 1.1 }}
@@ -118,8 +118,8 @@ const Header = () => {
                   >
                     Home
                   </motion.li>
-                </Link>
-                <Link to="/aboutus" onClick={() => setIsSidenavOpen(false)}>
+                </NavLink>
+                <NavLink to="/aboutus" className={({isActive})=>isActive?'border-b-2 border-black':''} onClick={() => setIsSidenavOpen(false)}>
                   <motion.li
                     className="mb-4"
                     whileHover={{ scale: 1.1 }}
@@ -128,8 +128,8 @@ const Header = () => {
                   >
                     About us
                   </motion.li>
-                </Link>
-                <Link to="/mission" onClick={() => setIsSidenavOpen(false)}>
+                </NavLink>
+                <NavLink to="/mission" className={({isActive})=>isActive?'border-b-2 border-black':''} onClick={() => setIsSidenavOpen(false)}>
                   <motion.li
                     className="mb-4"
                     whileHover={{ scale: 1.1 }}
@@ -138,7 +138,7 @@ const Header = () => {
                   >
                     Mission
                   </motion.li>
-                </Link>
+                </NavLink>
               </ul>
             </nav>
           </div>
