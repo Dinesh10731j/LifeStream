@@ -1,4 +1,4 @@
-import { axiosInstance } from "../api/axiosInterceptor";
+import axiosInstance from "../api/axiosInterceptor";
 import { useMutation } from "@tanstack/react-query";
 import Cookies from "js-cookie";
 import { Endpoints } from "../api/Apendpoints";

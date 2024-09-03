@@ -1,6 +1,6 @@
 import { Endpoints } from "../api/Apendpoints";
 const { Getusers } = Endpoints;
-import { axiosInstance } from "../api/axiosInterceptor";
+import axiosInstance from "../api/axiosInterceptor";
 import { useQuery } from "@tanstack/react-query";
 const ManageUsers = async () => {
   try {

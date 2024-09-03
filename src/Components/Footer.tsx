@@ -23,7 +23,7 @@ const Footer = () => {
       
       <section>
         <h1>Contact Us</h1>
-        <h1>Email: lorem@gmail.com</h1>
+        <h1>Email: lifestream612@gmail.com</h1>
         <h1>Phone: 9877667788</h1>
       </section>
     </footer>

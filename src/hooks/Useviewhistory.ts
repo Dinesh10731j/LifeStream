@@ -1,6 +1,6 @@
 import { Endpoints } from "../api/Apendpoints";
 const { Userhistory } = Endpoints;
-import { axiosInstance } from "../api/axiosInterceptor";
+import axiosInstance from "../api/axiosInterceptor";
 import { useQuery } from "@tanstack/react-query";
 import base64 from "base-64"
 

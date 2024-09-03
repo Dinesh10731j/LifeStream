@@ -1,4 +1,4 @@
-import { axiosInstance } from "../api/axiosInterceptor";
+import axiosInstance from "../api/axiosInterceptor";
 import { useMutation } from "@tanstack/react-query"; // Correct import from react-query
 import { Endpoints } from "../api/Apendpoints";
 import { toast } from "react-toastify";
