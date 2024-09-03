@@ -1,5 +1,5 @@
 import { Endpoints } from "../api/Apendpoints";
-import { axiosInstance } from "../api/axiosInterceptor";
+import axiosInstance from "../api/axiosInterceptor";
 import { useQuery } from "@tanstack/react-query";
 
 const {Donationstats} = Endpoints;

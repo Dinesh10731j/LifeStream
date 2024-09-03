@@ -1,6 +1,6 @@
 import { Endpoints } from "../api/Apendpoints";
 import { useQuery } from "@tanstack/react-query";
-import { axiosInstance } from "../api/axiosInterceptor";
+import axiosInstance from "../api/axiosInterceptor";
 import Cookies from "js-cookie";
 const {Managebloodrquest} = Endpoints;
 

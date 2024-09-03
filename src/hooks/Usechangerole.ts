@@ -1,7 +1,7 @@
 
 import { Endpoints } from "../api/Apendpoints";
 const { Changerole } = Endpoints;
-import { axiosInstance } from "../api/axiosInterceptor";
+import axiosInstance from "../api/axiosInterceptor";
 import { useMutation } from "@tanstack/react-query";
 
 interface UserRoleData {
