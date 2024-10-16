@@ -3,6 +3,7 @@ import ReceipentSidenav from '../../sidenavlayout/RecipientSidenav';
 import Bgbubble from '../../Components/Bgbubble';
 import { UseReceipentrequesthistory } from '../../hooks/Usebloodrequesthistory';
 import { CircularProgress } from '@mui/material';
+import {Trash2Icon} from "lucide-react"
 
 interface HistoryResponse {
   _id: string;
@@ -50,15 +51,16 @@ const RequestHistory = () => {
             ReceipientantRequesthistory.data.map((request: HistoryResponse) => (
               <div
                 key={request._id}
-                className={`py-4 px-6 ${getBackgroundColorClass(request.urgency)} ${getTextColorClass(request.urgency)} rounded-lg shadow-lg h-[300px] w-[350px] flex flex-col justify-between z-10`}
+                className={`relative py-4 px-6 ${getBackgroundColorClass(request.urgency)} ${getTextColorClass(request.urgency)} rounded-lg shadow-lg h-[300px] w-[350px] flex flex-col justify-between z-10`}
               >
+                <Trash2Icon className='absolute cursor-pointer top-2 right-2 text-red-700'/>
              
                   <p className="font-sans text-lg">Full Name: {request.fullName}</p>
                   <p className={`${request.urgency.toLowerCase()=='yes'?'bg-red-500':'bg-green-600'} px-2 py-3 w-40 text-center rounded-md`}>Urgency: {request.urgency}</p>
                   <p>Email: {request.email}</p>
                   <p>Quantity: {request.quantity}</p>
                   <p>Message: {request.message}</p>
-                  <p className="font-medium">Blood Group: {request.bloodGroup}</p>
+                  <p className="font-medium">Blood Group: {request?.bloodGroup}</p>
                
               </div>
             ))
