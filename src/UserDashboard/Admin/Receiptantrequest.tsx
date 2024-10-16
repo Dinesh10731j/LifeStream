@@ -81,7 +81,7 @@ const Receiptantrequest = () => {
                   className={
                     request.status === "Pending"
                       ? "text-yellow-400"
-                      : request.status === "Completed"
+                      : request.status === "Accepted"
                       ? "text-green-600"
                       : request.status === "Rejected"
                       ? "text-red-700"
@@ -100,7 +100,7 @@ const Receiptantrequest = () => {
   request?.status === 'Accepted' ? (
     <div className="flex items-center">
       <span>Accepted</span>
-      <CheckIcon className="h-6 w-6 ml-2 text-green-500" />
+      <CheckIcon className="h-6 w-6 ml-2 text-green-300" />
     </div>
   ) : (
     'Accept'
