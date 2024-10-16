@@ -1,24 +1,13 @@
-import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
 import AdminSidenav from "../../sidenavlayout/AdminSidenav";
 import Bgbubble from "../../Components/Bgbubble";
-import { Trash, Edit } from "lucide-react";
-import { UseManageBloodRequest } from "../../hooks/Usemanagebloodrequest";
-import { UseRecipientEditRequest } from "../../hooks/Useeditrequest";
 
-import {
-  CircularProgress,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogTitle,
-  Button,
-  TextField,
-} from "@mui/material";
-import { Usedelete } from "../../hooks/Userequestdelete";
+import { UseManageBloodRequest } from "../../hooks/Usemanagebloodrequest";
+
+import { CircularProgress } from "@mui/material";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { UseAcceptRequest } from "../../hooks/Useacceptrequest";
 interface ReceipientRequestData {
   _id: string;
   fullName: string;
@@ -28,45 +17,18 @@ interface ReceipientRequestData {
   bloodGroup: string;
   requestdate: string;
   message: string;
+  status:string;
 }
 
 const Receiptantrequest = () => {
   const Managebloodrequest = UseManageBloodRequest();
-  const [isEditOpen, setIsEditOpen] = useState(false);
-  const { control, handleSubmit, reset } = useForm<ReceipientRequestData>({
-    defaultValues: {
-      fullName: "",
-      urgency: "",
-      email: "",
-      quantity: "",
-      bloodGroup: "",
-      requestdate: "",
-      message: "",
-    },
-  });
-
-  const { mutate: deleteRequest,isPending} = Usedelete();
-  const editrequest = UseRecipientEditRequest();
-  
-
-
-  const handleEditClick = (request: ReceipientRequestData) => {
-    reset(request);
-    setIsEditOpen(true);
+const acceptMutation = UseAcceptRequest();
+  const handleAccept = (acceptId: string) => {
+    acceptMutation.mutate(acceptId);
   };
 
-  const handleEditClose = () => {
-    setIsEditOpen(false);
-  };
-
-  const handleEditSave = (data:ReceipientRequestData) => {
- editrequest.mutate({editid:data._id, editedData:data })
-    setIsEditOpen(false);
-   
-  };
-
-  const handleDeleteClick = (requestId: string) => {
-    deleteRequest(requestId);
+  const handleReject = (rejectId: string) => {
+    console.log(rejectId);
   };
 
   return (
@@ -79,7 +41,7 @@ const Receiptantrequest = () => {
             <CircularProgress />
           </div>
         ) : Managebloodrequest.isError ? (
-          <p className="text-2xl md:4xl ">There is no  receiptant request</p>
+          <p className="text-2xl md:4xl ">There is no receiptant request</p>
         ) : (
           Managebloodrequest.data?.map((request: ReceipientRequestData) => (
             <div
@@ -108,18 +70,35 @@ const Receiptantrequest = () => {
               <p>
                 <strong>Message:</strong> {request.message}
               </p>
+
+              <p>
+              <strong>Status:</strong> 
+<span className={
+  request.status === 'Pending' 
+    ? 'text-yellow-400' 
+    : request.status === 'Completed' 
+    ? 'text-green-600' 
+    : request.status === 'Rejected' 
+    ? 'text-red-700' 
+    : ''
+}>
+  {request.status}
+</span>
+
+              </p>
               <div className="flex justify-between mt-2">
                 <button
                   className=" p-2 bg-green-500 text-white rounded cursor-pointer"
-                  onClick={() => handleEditClick(request)}
+                  onClick={() => handleAccept(request?._id)}
                 >
-                  <Edit />
+                  Accept
                 </button>
                 <button
                   className=" p-2 bg-red-500 text-white rounded cursor-pointer"
-                  onClick={() => handleDeleteClick(request._id)}
+                  onClick={() => handleReject(request._id)}
                 >
-                 { isPending?<CircularProgress size={20}/>: <Trash />}
+               
+                  Reject
                 </button>
               </div>
             </div>
@@ -127,116 +106,6 @@ const Receiptantrequest = () => {
         )}
       </section>
 
-      <Dialog open={isEditOpen} onClose={handleEditClose}>
-        <DialogTitle>Edit Request</DialogTitle>
-        <DialogContent>
-          <form onSubmit={handleSubmit(handleEditSave)}>
-            <Controller
-              name="fullName"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  margin="dense"
-                  label="Full Name"
-                  type="text"
-                  fullWidth
-                />
-              )}
-            />
-            <Controller
-              name="urgency"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  margin="dense"
-                  label="Urgency"
-                  type="text"
-                  fullWidth
-                />
-              )}
-            />
-            <Controller
-              name="email"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  margin="dense"
-                  label="Email"
-                  type="email"
-                  fullWidth
-                />
-              )}
-            />
-            <Controller
-              name="quantity"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  margin="dense"
-                  label="Quantity"
-                  type="number"
-                  fullWidth
-                />
-              )}
-            />
-            <Controller
-              name="bloodGroup"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  margin="dense"
-                  label="Blood Group"
-                  type="text"
-                  fullWidth
-                />
-              )}
-            />
-            <Controller
-              name="requestdate"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  margin="dense"
-                  label="Request Date"
-                  type="datetime-local"
-                  fullWidth
-                />
-              )}
-            />
-            <Controller
-              name="message"
-              control={control}
-              render={({ field }) => (
-                <TextField
-                  {...field}
-                  margin="dense"
-                  label="Message"
-                  type="text"
-                  fullWidth
-                />
-              )}
-            />
-            <DialogActions>
-              <Button onClick={handleEditClose} color="primary">
-                Cancel
-              </Button>
-              <Button type="submit" color="primary">
-                Save
-              </Button>
-            </DialogActions>
-          </form>
-
-        </DialogContent>
-      </Dialog>
-
-
-      
       <ToastContainer theme="light" position="top-center" />
     </>
   );
