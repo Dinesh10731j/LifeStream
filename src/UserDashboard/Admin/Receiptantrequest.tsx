@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { UseAcceptRequest } from "../../hooks/Useacceptrequest";
 import { UseRejectRequest } from "../../hooks/Userejectrequest";
+import {X,CheckIcon} from "lucide-react"
 interface ReceipientRequestData {
   _id: string;
   fullName: string;
@@ -27,6 +28,7 @@ const Receiptantrequest = () => {
   const rejectMutation = UseRejectRequest();
   const handleAccept = (acceptId: string) => {
     acceptMutation.mutate(acceptId);
+    
   };
 
   const handleReject = (rejectId: string) => {
@@ -79,7 +81,7 @@ const Receiptantrequest = () => {
                   className={
                     request.status === "Pending"
                       ? "text-yellow-400"
-                      : request.status === "Completed"
+                      : request.status === "Accepted"
                       ? "text-green-600"
                       : request.status === "Rejected"
                       ? "text-red-700"
@@ -94,13 +96,32 @@ const Receiptantrequest = () => {
                   className=" p-2 bg-green-500 text-white rounded cursor-pointer"
                   onClick={() => handleAccept(request?._id)}
                 >
-                  Accept
+                 {
+  request?.status === 'Accepted' ? (
+    <div className="flex items-center">
+      <span>Accepted</span>
+      <CheckIcon className="h-6 w-6 ml-2 text-green-300" />
+    </div>
+  ) : (
+    'Accept'
+  )
+}
                 </button>
                 <button
                   className=" p-2 bg-red-500 text-white rounded cursor-pointer"
-                  onClick={() => handleReject(request._id)}
+                  onClick={() => handleReject(request?._id)}
                 >
-                  Reject
+                 {
+  request?.status === 'Rejected' ? (
+    <div className="flex items-center">
+      <span>Rejected</span>
+      <X className="h-6 w-6 ml-2 text-red-300" />
+    </div>
+  ) : (
+    'Reject'
+  )
+}
+
                 </button>
               </div>
             </div>
