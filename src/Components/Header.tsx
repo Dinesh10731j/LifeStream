@@ -1,7 +1,7 @@
 import { useState } from "react";
 import {NavLink} from "react-router-dom";
 import { Menu as MenuIcon, X as XIcon } from "lucide-react";
-import Codynn_Logo from "../assets/Codynn_Logo.png";
+import Lifestream_Logo from "../assets/Codynn_Logo.png";
 import { motion } from "framer-motion";
 
 const Header = () => {
@@ -12,9 +12,8 @@ const Header = () => {
       <section className="flex justify-around items-center py-3 px-2">
         <section>
           <motion.img
-            src={Codynn_Logo}
+            src={Lifestream_Logo}
             alt="codynn_logo"
-            className="mt-4"
             initial={{ y: -80, opacity: 0 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 300, delay: 0.4 }}
