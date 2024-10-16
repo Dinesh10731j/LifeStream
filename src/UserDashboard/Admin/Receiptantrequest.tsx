@@ -7,7 +7,7 @@ import { CircularProgress } from "@mui/material";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { UseAcceptRequest } from "../../hooks/Useacceptrequest";
 interface ReceipientRequestData {
   _id: string;
   fullName: string;
@@ -17,13 +17,14 @@ interface ReceipientRequestData {
   bloodGroup: string;
   requestdate: string;
   message: string;
+  status:string;
 }
 
 const Receiptantrequest = () => {
   const Managebloodrequest = UseManageBloodRequest();
-
+const acceptMutation = UseAcceptRequest();
   const handleAccept = (acceptId: string) => {
-    console.log(acceptId);
+    acceptMutation.mutate(acceptId);
   };
 
   const handleReject = (rejectId: string) => {
@@ -68,6 +69,22 @@ const Receiptantrequest = () => {
               </p>
               <p>
                 <strong>Message:</strong> {request.message}
+              </p>
+
+              <p>
+              <strong>Status:</strong> 
+<span className={
+  request.status === 'Pending' 
+    ? 'text-yellow-400' 
+    : request.status === 'Completed' 
+    ? 'text-green-600' 
+    : request.status === 'Rejected' 
+    ? 'text-red-700' 
+    : ''
+}>
+  {request.status}
+</span>
+
               </p>
               <div className="flex justify-between mt-2">
                 <button

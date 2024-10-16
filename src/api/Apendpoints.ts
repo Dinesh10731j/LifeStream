@@ -20,4 +20,6 @@ export const Endpoints = {
   DonationInfo: "/api/donation-info",
   Donordonationstats: "/api/donor-donation-stats",
   DeleteRequest: "/api/delete-request",
+  Acceptrequest: "/api/accept",
+  Rejectrequest: "/api/reject",
 };
