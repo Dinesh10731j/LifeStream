@@ -14,6 +14,7 @@ interface HistoryResponse {
   message: string;
   bloodGroup: string;
   requestId: string;
+  status:string;
 }
 
 interface requestType {
@@ -86,6 +87,15 @@ const RequestHistory = () => {
               <p>Quantity: {request.quantity}</p>
               <p>Message: {request.message}</p>
               <p className="font-medium">Blood Group: {request?.bloodGroup}</p>
+              <p  >Status:<span className={
+                    request.status === "Pending"
+                      ? "text-yellow-400"
+                      : request.status === "Accepted"
+                      ? "text-green-600"
+                      : request.status === "Rejected"
+                      ? "text-red-700"
+                      : ""
+                  }> {request?.status}</span></p>
             </div>
           ))
         ) : (
