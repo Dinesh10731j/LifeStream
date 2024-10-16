@@ -25,6 +25,7 @@ Lifestream is a comprehensive web platform designed to facilitate blood donation
   - Manage user roles, blood bank inventory, and donation events.
   - Monitor donation statistics and generate reports.
   - Send notifications to donors and recipients regarding urgent blood needs.
+  - Accept or Reject the Receiptant Blood Request
 
 - **Blood Donation Process**:
   - Streamlined workflow from donor registration to blood collection.
