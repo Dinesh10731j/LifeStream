@@ -22,4 +22,5 @@ export const Endpoints = {
   DeleteRequest: "/api/delete-request",
   Acceptrequest: "/api/accept",
   Rejectrequest: "/api/reject",
+  Chat:'/api/chat',
 };

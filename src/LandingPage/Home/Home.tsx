@@ -1,6 +1,7 @@
 import donateBlood from "../../assets/donate_blood.jpg";
 import Footer from "../../Components/Footer";
 import { motion } from "framer-motion";
+import Chat from "../../Components/Chat";
 
 const Home = () => {
   return (
@@ -49,6 +50,8 @@ const Home = () => {
       </section>
 
       <Footer />
+
+      <Chat/>
     </>
   );
 };
