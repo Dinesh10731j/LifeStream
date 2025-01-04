@@ -1,6 +1,7 @@
 import Footer from "../../Components/Footer";
 import { motion } from "framer-motion";
 import { ourTeam } from "../../utils/placeholder";
+import Chat from "../../Components/Chat";
 const Aboutus = () => {
   return (
     <>
@@ -42,7 +43,7 @@ const Aboutus = () => {
           transition={{ y: 0, stiffness: 300, type: "spring" }}>Our Team</motion.h1>
       </section>
 
-      <section className="flex  flex-wrap justify-center items-center gap-10">
+      <section className="flex  flex-wrap justify-center items-center mb-4 gap-10">
         {ourTeam?.map((teams, index) => (
           <motion.div
             key={index}
@@ -60,6 +61,7 @@ const Aboutus = () => {
         ))}
       </section>
       <Footer />
+      <Chat/>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import {motion} from "framer-motion"
 import SuccessImage from "../../assets/missiongroup.avif";
+import Chat from "../../Components/Chat";
 const Mission = () => {
   return (
     <>
@@ -24,6 +25,8 @@ const Mission = () => {
          transition={{ y: 0, stiffness: 300, type: "spring" }}/>
 
 </section>
+
+<Chat/>
 
     </>
   );
