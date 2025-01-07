@@ -24,6 +24,7 @@ import Request from './UserDashboard/Receiptant/Request';
 import Searchdonor from './UserDashboard/Receiptant/Searchdonor'
 import RequestHistory from './UserDashboard/Receiptant/RequestHistory';
 import Viewuserhistory from './Viewuserhistory/Viewuserhistory';
+import NotFound from './404/404';
 
 const App = () => {
   return (
@@ -35,6 +36,8 @@ const App = () => {
           <Route path="/mission" element={<Mission />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path='*' element={<NotFound/>}/>
+        
         </Route>
         
         <Route  element={<AdminRoutes />}>
@@ -45,6 +48,7 @@ const App = () => {
           <Route path="/manage-receiptant" element={<ManageReceiptant />} />
           <Route path="/receiptant-request" element={<Receiptantrequest />} />
           <Route path='/viewuserhistory/:id' element={<Viewuserhistory/>}/>
+          <Route path='*' element={<NotFound/>}/>
 
          
         </Route>
@@ -54,6 +58,7 @@ const App = () => {
           <Route path="/schedule" element={<ScheduleNewDonations />} />
           <Route path="/history" element={<ViewDonationHistory email={''}/>} />
           <Route path="/update" element={<UpdatePersonalInformation userid={""} />} />
+          <Route path='*' element={<NotFound/>}/>
         
         </Route>
 
@@ -62,6 +67,7 @@ const App = () => {
           <Route path="/blood-request" element={<Request/>} />
           <Route path="/search-donor" element={<Searchdonor/>} />
           <Route path="/request-history" element={<RequestHistory/>} />
+          <Route path='*' element={<NotFound/>}/>
          
         </Route> 
       </Routes>
@@ -81,6 +87,7 @@ const LayoutWithHeader = () => {
           <Route path="/mission" element={<Mission />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path='*' element={<NotFound/>}/>
         </Routes>
       </Layout>
     </>
