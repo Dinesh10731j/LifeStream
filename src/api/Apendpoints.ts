@@ -23,5 +23,6 @@ export const Endpoints = {
   Acceptrequest: "/api/accept",
   Rejectrequest: "/api/reject",
   Chat:'/api/chat',
-  Receiptantoverview:"/api/receiptant_overview"
+  Receiptantoverview:"/api/receiptant_overview",
+  Removeaccount:'/api/remove_account'
 };
