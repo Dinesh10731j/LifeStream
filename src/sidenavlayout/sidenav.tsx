@@ -6,7 +6,8 @@ import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 import { donorNavLinks } from '../NavLink/route';
 import { CircularProgress } from '@mui/material';
-
+import { UseRemoveAccount } from '../hooks/Useremoveaccount';
+import { ToastContainer } from 'react-toastify';
 interface SidenavProps {
   userid: string; // Explicitly type the userid as a string
 }
@@ -15,6 +16,7 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
   const { isLoading,  data } = UseUserProfile(userid);
+  const accountMutation = UseRemoveAccount();
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -30,6 +32,17 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
     Cookies.remove("email");
     Cookies.remove('id')
    navigate("/login");
+  }
+
+  const handleRemoveAccount = ()=>{
+    const userId = Cookies.get("userid");
+
+    if(userId){
+      accountMutation.mutate(userId);
+    }else{
+      throw new Error("User ID is undefined")
+    }
+    
   }
 
   
@@ -92,9 +105,16 @@ const Sidenav: React.FC<SidenavProps> = ({ userid }) => {
           </ul>
         </nav>
         <button onClick={handleLogout} className='py-2 px-7 mt-4 ml-7  rounded-md bg-[tomato] text-[#FFFFFF]'>Logout</button>
+        <button className='text-red-700 text-center px-7 py-4 flex flex-col' onClick={handleRemoveAccount}>{
+          accountMutation.isPending?(
+            <CircularProgress size={20} sx={{ml:7,mt:2}} color='primary'/>
+          ):(
+            "Remove Account"
+          )
+          }</button>
       </aside>
 
-      
+      <ToastContainer position='top-center' theme='light'/>
 
 </div>
 

@@ -5,7 +5,7 @@ const { Receiptantoverview } = Endpoints;
 const receiptantOverview = async () => {
   try {
     const response = await axiosInstance.get(Receiptantoverview);
-    console.log("This is data",response.data);
+  
     return response.data;
   } catch (error: unknown) {
     if (error instanceof Error) {
